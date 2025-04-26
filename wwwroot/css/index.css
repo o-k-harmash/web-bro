@@ -1,0 +1,149 @@
+:root {
+    /* Font families */
+    --font-family-primary: "Heebo";
+    --font-family-secondary: "Barlow";
+
+    /* Font weights */
+    --font-weight-primary: 400;
+    --font-weight-secondary: 700;
+
+    --font-color-primary: var(--color-grey-100);
+    --font-color-secondary: var(--color-grey-900);
+
+    /* Colors */
+    --color-white: hsl(0, 0%, 100%);
+    --color-grey-25: hsl(185, 17%, 95%);
+    --color-grey-50: hsl(185, 17%, 88%);
+    --color-grey-100: hsl(0, 0%, 45%);
+    --color-grey-900: hsl(200, 10%, 12%);
+    --color-blue-200: hsl(189, 50%, 61%);
+    --color-blue-500: hsl(227, 45%, 44%);
+
+    /* Background colors */
+    --background-color-secondary: var(--color-grey-25);
+    --background-color-primary: var(--color-white);
+
+    /* Border color */
+    --border-color-primary: var(--color-grey-50);
+    --border-color-secondary: var(--color-blue-200);
+
+    /* Spacing */
+    --spacing-md: 1.5rem;
+    /* 22px */
+    /* --spacing-width-coef-md: 0.15vw; */
+
+    /* Radius */
+    --radius-md: 0.4rem;
+    --radius-sm: 0.2rem;
+}
+
+
+
+body {
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-weight-primary);
+    color: var(--font-color-primary);
+    min-height: 100vh;
+    background-color: var(--background-color-secondary);
+}
+
+.container {
+    margin-inline: auto;
+    max-width: 58rem;
+}
+
+.cource {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-family-primary);
+    font-weight: 500;
+    color: var(--font-color-secondary);
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+.learning-path-card__title {
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: var(--font-color-secondary);
+}
+
+.level-tag {
+    width: fit-content;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-blue-200);
+    text-transform: uppercase;
+    display: inline-flex;
+    line-height: 1.5;
+    border: 1px solid var(--color-blue-200);
+}
+
+.level-tag__number {
+    color: var(--color-white);
+    background-color: var(--color-blue-200);
+}
+
+.level-tag__number,
+.level-tag__title {
+    padding-inline: 0.5rem;
+}
+
+.learning-path-card__description {
+    line-height: 1.6;
+    font-size: 1rem;
+    font-family: var(--font-family-primary);
+}
+
+.learning-path-card__progress-bar {
+    margin-bottom: 0.8rem;
+    border-radius: var(--radius-md);
+    padding-block: 0.3rem;
+    background-image: linear-gradient(to right, #3e54a3 0%, #dbe5e6 0%);
+}
+
+.learning-path-card__progress-percentage {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--font-color-secondary);
+    text-transform: uppercase;
+}
+
+.learning-path-card__media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+}
+
+@media (max-width: 720px) {
+    .learning-path-card {
+        flex-direction: column-reverse;
+    }
+}
+
+.step-nav {
+    color: var(--font-color-secondary);
+    font-size: 1rem;
+}
+
+.step-nav li {
+    list-style-type: circle;
+    list-style-position: inside;
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color-primary);
+}

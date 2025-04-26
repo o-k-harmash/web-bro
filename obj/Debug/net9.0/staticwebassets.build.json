@@ -1,0 +1,1382 @@
+{
+  "Version": 1,
+  "Hash": "itlyGsaZedq3UjCroqWOBEWxu/DkJr71gk7R5dpNFB0=",
+  "Source": "WebBro",
+  "BasePath": "_content/WebBro",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "WebBro\\wwwroot",
+      "Source": "WebBro",
+      "ContentRoot": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\",
+      "BasePath": "_content/WebBro",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\405e8ale0z-61n19gt1b8.gz",
+      "SourceId": "WebBro",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/WebBro",
+      "RelativePath": "favicon#[.{fingerprint=61n19gt1b8}]?.ico.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\favicon.ico",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "nezsohjtde",
+      "Integrity": "wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\7jvsnhiray-afq32eknvg.gz",
+      "SourceId": "WebBro",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/WebBro",
+      "RelativePath": "css/helper#[.{fingerprint=afq32eknvg}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\helper.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "7ivzvkf0zd",
+      "Integrity": "wTZeXRdyid/XX80mpUw9BMYB6BYMxKn5YbVMAqrRVE4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\helper.css"
+    },
+    {
+      "Identity": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\gzopd45z2o-i7c5hv8wcj.gz",
+      "SourceId": "WebBro",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/WebBro",
+      "RelativePath": "css/index#[.{fingerprint=i7c5hv8wcj}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\index.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "691ozjw1up",
+      "Integrity": "pnQxSieQTlrTbMLR5utpvHUPV6/VgYFxyP0miByD+qI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\index.css"
+    },
+    {
+      "Identity": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\w32mzu242z-bjyast1hrh.gz",
+      "SourceId": "WebBro",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/WebBro",
+      "RelativePath": "css/reset#[.{fingerprint=bjyast1hrh}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\reset.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "dvyygvn4em",
+      "Integrity": "CUH2ImLFKltcevZ1B182CM1t1A3DTAYISyJ6k2jilwA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\reset.css"
+    },
+    {
+      "Identity": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\helper.css",
+      "SourceId": "WebBro",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\",
+      "BasePath": "_content/WebBro",
+      "RelativePath": "css/helper#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "afq32eknvg",
+      "Integrity": "huKuWLqQK75/Urr+SV6KpgkUrNBTtrZArn6TLqtuM50=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\helper.css"
+    },
+    {
+      "Identity": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\index.css",
+      "SourceId": "WebBro",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\",
+      "BasePath": "_content/WebBro",
+      "RelativePath": "css/index#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "i7c5hv8wcj",
+      "Integrity": "8iWmScyWenmDw0TxjozwlBM04s8JJ3WDghoResUX6Ls=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\index.css"
+    },
+    {
+      "Identity": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\reset.css",
+      "SourceId": "WebBro",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\",
+      "BasePath": "_content/WebBro",
+      "RelativePath": "css/reset#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bjyast1hrh",
+      "Integrity": "V006IqtfeUMM6ouIbf0DOQ/TAyKs1bFlWZamfOVzHbY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\reset.css"
+    },
+    {
+      "Identity": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\favicon.ico",
+      "SourceId": "WebBro",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\",
+      "BasePath": "_content/WebBro",
+      "RelativePath": "favicon#[.{fingerprint}]?.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "61n19gt1b8",
+      "Integrity": "Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "css/helper.afq32eknvg.css",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\7jvsnhiray-afq32eknvg.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.005154639175"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "193"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wTZeXRdyid/XX80mpUw9BMYB6BYMxKn5YbVMAqrRVE4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 09:11:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"huKuWLqQK75/Urr+SV6KpgkUrNBTtrZArn6TLqtuM50=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "afq32eknvg"
+        },
+        {
+          "Name": "label",
+          "Value": "css/helper.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-huKuWLqQK75/Urr+SV6KpgkUrNBTtrZArn6TLqtuM50="
+        }
+      ]
+    },
+    {
+      "Route": "css/helper.afq32eknvg.css",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\helper.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "385"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"huKuWLqQK75/Urr+SV6KpgkUrNBTtrZArn6TLqtuM50=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 09:11:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "afq32eknvg"
+        },
+        {
+          "Name": "label",
+          "Value": "css/helper.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-huKuWLqQK75/Urr+SV6KpgkUrNBTtrZArn6TLqtuM50="
+        }
+      ]
+    },
+    {
+      "Route": "css/helper.afq32eknvg.css.gz",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\7jvsnhiray-afq32eknvg.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "193"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wTZeXRdyid/XX80mpUw9BMYB6BYMxKn5YbVMAqrRVE4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 09:11:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "afq32eknvg"
+        },
+        {
+          "Name": "label",
+          "Value": "css/helper.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wTZeXRdyid/XX80mpUw9BMYB6BYMxKn5YbVMAqrRVE4="
+        }
+      ]
+    },
+    {
+      "Route": "css/helper.css",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\7jvsnhiray-afq32eknvg.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.005154639175"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "193"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wTZeXRdyid/XX80mpUw9BMYB6BYMxKn5YbVMAqrRVE4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 09:11:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"huKuWLqQK75/Urr+SV6KpgkUrNBTtrZArn6TLqtuM50=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-huKuWLqQK75/Urr+SV6KpgkUrNBTtrZArn6TLqtuM50="
+        }
+      ]
+    },
+    {
+      "Route": "css/helper.css",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\helper.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "385"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"huKuWLqQK75/Urr+SV6KpgkUrNBTtrZArn6TLqtuM50=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 09:11:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-huKuWLqQK75/Urr+SV6KpgkUrNBTtrZArn6TLqtuM50="
+        }
+      ]
+    },
+    {
+      "Route": "css/helper.css.gz",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\7jvsnhiray-afq32eknvg.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "193"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wTZeXRdyid/XX80mpUw9BMYB6BYMxKn5YbVMAqrRVE4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 09:11:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wTZeXRdyid/XX80mpUw9BMYB6BYMxKn5YbVMAqrRVE4="
+        }
+      ]
+    },
+    {
+      "Route": "css/index.css",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\gzopd45z2o-i7c5hv8wcj.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001043841336"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "957"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pnQxSieQTlrTbMLR5utpvHUPV6/VgYFxyP0miByD+qI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 10:55:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"8iWmScyWenmDw0TxjozwlBM04s8JJ3WDghoResUX6Ls=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8iWmScyWenmDw0TxjozwlBM04s8JJ3WDghoResUX6Ls="
+        }
+      ]
+    },
+    {
+      "Route": "css/index.css",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\index.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3311"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8iWmScyWenmDw0TxjozwlBM04s8JJ3WDghoResUX6Ls=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 10:55:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8iWmScyWenmDw0TxjozwlBM04s8JJ3WDghoResUX6Ls="
+        }
+      ]
+    },
+    {
+      "Route": "css/index.css.gz",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\gzopd45z2o-i7c5hv8wcj.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "957"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pnQxSieQTlrTbMLR5utpvHUPV6/VgYFxyP0miByD+qI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 10:55:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-pnQxSieQTlrTbMLR5utpvHUPV6/VgYFxyP0miByD+qI="
+        }
+      ]
+    },
+    {
+      "Route": "css/index.i7c5hv8wcj.css",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\gzopd45z2o-i7c5hv8wcj.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001043841336"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "957"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pnQxSieQTlrTbMLR5utpvHUPV6/VgYFxyP0miByD+qI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 10:55:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"8iWmScyWenmDw0TxjozwlBM04s8JJ3WDghoResUX6Ls=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "i7c5hv8wcj"
+        },
+        {
+          "Name": "label",
+          "Value": "css/index.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8iWmScyWenmDw0TxjozwlBM04s8JJ3WDghoResUX6Ls="
+        }
+      ]
+    },
+    {
+      "Route": "css/index.i7c5hv8wcj.css",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\index.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3311"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8iWmScyWenmDw0TxjozwlBM04s8JJ3WDghoResUX6Ls=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 10:55:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "i7c5hv8wcj"
+        },
+        {
+          "Name": "label",
+          "Value": "css/index.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8iWmScyWenmDw0TxjozwlBM04s8JJ3WDghoResUX6Ls="
+        }
+      ]
+    },
+    {
+      "Route": "css/index.i7c5hv8wcj.css.gz",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\gzopd45z2o-i7c5hv8wcj.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "957"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"pnQxSieQTlrTbMLR5utpvHUPV6/VgYFxyP0miByD+qI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 10:55:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "i7c5hv8wcj"
+        },
+        {
+          "Name": "label",
+          "Value": "css/index.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-pnQxSieQTlrTbMLR5utpvHUPV6/VgYFxyP0miByD+qI="
+        }
+      ]
+    },
+    {
+      "Route": "css/reset.bjyast1hrh.css",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\w32mzu242z-bjyast1hrh.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000410172272"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2437"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CUH2ImLFKltcevZ1B182CM1t1A3DTAYISyJ6k2jilwA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 25 Apr 2025 21:37:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"V006IqtfeUMM6ouIbf0DOQ/TAyKs1bFlWZamfOVzHbY=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bjyast1hrh"
+        },
+        {
+          "Name": "label",
+          "Value": "css/reset.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-V006IqtfeUMM6ouIbf0DOQ/TAyKs1bFlWZamfOVzHbY="
+        }
+      ]
+    },
+    {
+      "Route": "css/reset.bjyast1hrh.css",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\reset.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7724"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"V006IqtfeUMM6ouIbf0DOQ/TAyKs1bFlWZamfOVzHbY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 25 Apr 2025 21:37:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bjyast1hrh"
+        },
+        {
+          "Name": "label",
+          "Value": "css/reset.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-V006IqtfeUMM6ouIbf0DOQ/TAyKs1bFlWZamfOVzHbY="
+        }
+      ]
+    },
+    {
+      "Route": "css/reset.bjyast1hrh.css.gz",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\w32mzu242z-bjyast1hrh.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2437"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CUH2ImLFKltcevZ1B182CM1t1A3DTAYISyJ6k2jilwA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 25 Apr 2025 21:37:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bjyast1hrh"
+        },
+        {
+          "Name": "label",
+          "Value": "css/reset.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-CUH2ImLFKltcevZ1B182CM1t1A3DTAYISyJ6k2jilwA="
+        }
+      ]
+    },
+    {
+      "Route": "css/reset.css",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\w32mzu242z-bjyast1hrh.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000410172272"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2437"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CUH2ImLFKltcevZ1B182CM1t1A3DTAYISyJ6k2jilwA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 25 Apr 2025 21:37:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"V006IqtfeUMM6ouIbf0DOQ/TAyKs1bFlWZamfOVzHbY=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-V006IqtfeUMM6ouIbf0DOQ/TAyKs1bFlWZamfOVzHbY="
+        }
+      ]
+    },
+    {
+      "Route": "css/reset.css",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\reset.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7724"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"V006IqtfeUMM6ouIbf0DOQ/TAyKs1bFlWZamfOVzHbY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 25 Apr 2025 21:37:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-V006IqtfeUMM6ouIbf0DOQ/TAyKs1bFlWZamfOVzHbY="
+        }
+      ]
+    },
+    {
+      "Route": "css/reset.css.gz",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\w32mzu242z-bjyast1hrh.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2437"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CUH2ImLFKltcevZ1B182CM1t1A3DTAYISyJ6k2jilwA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 25 Apr 2025 21:37:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CUH2ImLFKltcevZ1B182CM1t1A3DTAYISyJ6k2jilwA="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.61n19gt1b8.ico",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\405e8ale0z-61n19gt1b8.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000405022276"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2468"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 12:31:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "61n19gt1b8"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.ico"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.61n19gt1b8.ico",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\favicon.ico",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5430"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 12:31:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "61n19gt1b8"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.ico"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.61n19gt1b8.ico.gz",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\405e8ale0z-61n19gt1b8.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2468"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 12:31:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "61n19gt1b8"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.ico.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ico",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\405e8ale0z-61n19gt1b8.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000405022276"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2468"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 12:31:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ico",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\favicon.ico",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5430"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 12:31:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ico.gz",
+      "AssetFile": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\Debug\\net9.0\\compressed\\405e8ale0z-61n19gt1b8.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2468"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 12:31:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wfFuuYm+Lh6RbCeeiUqxw334b/hIOkp5j9eokGUM1Y0="
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\helper.css",
+      "PackagePath": "staticwebassets\\css\\helper.css"
+    },
+    {
+      "Id": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\index.css",
+      "PackagePath": "staticwebassets\\css\\index.css"
+    },
+    {
+      "Id": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\reset.css",
+      "PackagePath": "staticwebassets\\css\\reset.css"
+    },
+    {
+      "Id": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.WebBro.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.WebBro.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.WebBro.props",
+      "PackagePath": "build\\WebBro.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.WebBro.props",
+      "PackagePath": "buildMultiTargeting\\WebBro.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.WebBro.props",
+      "PackagePath": "buildTransitive\\WebBro.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,14 @@
+@model List<LearningPathViewModel>
+
+@{
+    ViewData["Title"] = "index";
+}
+
+<ul class="cource">
+    @foreach (var learningPath in Model)
+    {
+        <li>
+            @await Html.PartialAsync("_LearningPathCard", learningPath);
+        </li>
+    }
+</ul>
