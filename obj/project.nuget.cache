@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "CMqvQ16qDqw=",
+  "dgSpecHash": "J56My+q2KKg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\WebBro.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\plpllaola\\Desktop\\frontendmentor\\playground\\WebBro\\WebBro.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\plpllaola\\.nuget\\packages\\markdig\\0.41.0\\markdig.0.41.0.nupkg.sha512"
+  ],
   "logs": []
 }

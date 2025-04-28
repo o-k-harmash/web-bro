@@ -1,19 +1,27 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\helper.css",
+      "Id": "C:\\Users\\plpllaola\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\_Button.css",
+      "PackagePath": "staticwebassets\\css\\_Button.css"
+    },
+    {
+      "Id": "C:\\Users\\plpllaola\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\_PreviewCard.css",
+      "PackagePath": "staticwebassets\\css\\_PreviewCard.css"
+    },
+    {
+      "Id": "C:\\Users\\plpllaola\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\helper.css",
       "PackagePath": "staticwebassets\\css\\helper.css"
     },
     {
-      "Id": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\index.css",
+      "Id": "C:\\Users\\plpllaola\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\index.css",
       "PackagePath": "staticwebassets\\css\\index.css"
     },
     {
-      "Id": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\reset.css",
+      "Id": "C:\\Users\\plpllaola\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\css\\reset.css",
       "PackagePath": "staticwebassets\\css\\reset.css"
     },
     {
-      "Id": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\plpllaola\\Desktop\\frontendmentor\\playground\\WebBro\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {

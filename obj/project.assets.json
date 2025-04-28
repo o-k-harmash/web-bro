@@ -1,26 +1,66 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {}
+    "net9.0": {
+      "Markdig/0.41.0": {
+        "type": "package",
+        "compile": {
+          "lib/net9.0/Markdig.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/Markdig.dll": {
+            "related": ".xml"
+          }
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Markdig/0.41.0": {
+      "sha512": "nEGSjfQ2i+MzJjvCZqoIBqW2x0iBALhhVogud48oPA/39a0n0jOhghdTYdm4xaDFBXmc4MxsVJAP5gtdvADvWQ==",
+      "type": "package",
+      "path": "markdig/0.41.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net462/Markdig.dll",
+        "lib/net462/Markdig.xml",
+        "lib/net8.0/Markdig.dll",
+        "lib/net8.0/Markdig.xml",
+        "lib/net9.0/Markdig.dll",
+        "lib/net9.0/Markdig.xml",
+        "lib/netstandard2.0/Markdig.dll",
+        "lib/netstandard2.0/Markdig.xml",
+        "lib/netstandard2.1/Markdig.dll",
+        "lib/netstandard2.1/Markdig.xml",
+        "markdig.0.41.0.nupkg.sha512",
+        "markdig.nuspec",
+        "markdig.png",
+        "readme.md"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net9.0": []
+    "net9.0": [
+      "Markdig >= 0.41.0"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\Alex\\.nuget\\packages\\": {}
+    "C:\\Users\\plpllaola\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\WebBro.csproj",
+      "projectUniqueName": "C:\\Users\\plpllaola\\Desktop\\frontendmentor\\playground\\WebBro\\WebBro.csproj",
       "projectName": "WebBro",
-      "projectPath": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\WebBro.csproj",
-      "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alex\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\",
+      "projectPath": "C:\\Users\\plpllaola\\Desktop\\frontendmentor\\playground\\WebBro\\WebBro.csproj",
+      "packagesPath": "C:\\Users\\plpllaola\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\plpllaola\\Desktop\\frontendmentor\\playground\\WebBro\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\plpllaola\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -44,11 +84,17 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net9.0": {
         "targetAlias": "net9.0",
+        "dependencies": {
+          "Markdig": {
+            "target": "Package",
+            "version": "[0.41.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -68,7 +114,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

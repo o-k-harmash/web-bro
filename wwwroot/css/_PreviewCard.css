@@ -1,0 +1,206 @@
+/* ==========================================================================
+  🔹 Базовая структура оберток
+   ========================================================================== */
+/* 🧱 Обертка для предпросмотра (preview) */
+.preview-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md); /* 📏 Расстояние между элементами */
+}
+
+/*testing*/
+.preview-wrapper .preview__header {
+  font-size: 1.6rem;
+}
+
+.preview-wrapper .preview__main {
+  gap: 0.4rem;
+}
+
+.preview-wrapper > .preview__header {
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-family: var(--font-family-primary);
+}
+
+/* ==========================================================================
+  📦 Preview: базовый каркас карточки
+   ========================================================================== */
+
+.preview {
+  line-height: 1.5;
+
+  --tag-font-size: 1rem;
+  --max-media-height: 22rem;
+
+  display: flex;
+  gap: clamp(1rem, 2vw, var(--spacing-lg)); /* 📏 Адаптивный отступ */
+  font-family: var(--font-family-secondary);
+}
+
+/* 🧩 Контентная часть карточки */
+.preview__main {
+  display: flex;
+  flex-direction: column;
+  flex: 1.5; /* 🧮 Занимает ~60% */
+  width: 100%;
+  height: fit-content;
+  gap: clamp(1rem, 1vw, 1.25rem); /* 📏 Адаптивный отступ */
+}
+
+/* 🖼 Медиа-блок карточки */
+.preview__aside {
+  flex: 1; /* 🧮 Занимает ~40% */
+}
+
+/* ==========================================================================
+  ✏️ Элементы контента
+   ========================================================================== */
+
+.preview__header {
+  font-size: 1.9rem;
+}
+
+.preview__description {
+  font-size: 1.1rem;
+  font-family: var(--font-family-primary);
+}
+
+.preview__tag {
+  display: inline-flex;
+  width: fit-content;
+  font-weight: 600;
+  font-size: var(--tag-font-size);
+  border-radius: 0.3rem;
+  text-transform: uppercase;
+  color: var(--color-blue-200);
+  border: 1px solid var(--color-blue-200);
+}
+
+.preview__tag > * {
+  padding-inline: 0.6rem;
+}
+
+/* 🚨 Опасный/акцентный тег */
+.preview__tag-danger {
+  border-radius: 0.2rem 0 0 0.2rem;
+  color: var(--color-white);
+  background-color: var(--color-blue-200);
+}
+
+/* ==========================================================================
+  🖼 Работа с медиа
+   ========================================================================== */
+
+.preview__media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ✂️ Обрезка без искажений */
+  border-radius: var(--radius-md);
+}
+
+/* ==========================================================================
+  📈 Прогресс-бары
+   ========================================================================== */
+
+.preview__progress-wrapper {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.preview__progress-wrapper .button {
+  flex: 1;
+}
+
+.preview__progress {
+  flex: 4;
+}
+
+.preview__progress-bar {
+  margin-bottom: 0.6rem;
+  border-radius: var(--radius-md);
+  padding-block: 0.38rem;
+  background-image: linear-gradient(
+    to right,
+    #3e54a3 var(--data-percentage),
+    #dbe5e6 0%
+  );
+}
+
+.preview__progress-percentage {
+  display: inline-block;
+  font-size: var(--tag-font-size);
+  font-weight: 700;
+  color: var(--font-color-secondary);
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+  🎨 Модификаторы карточек
+   ========================================================================== */
+
+/* 🧹 Базовая карточка с рамкой */
+.preview_card {
+  background-color: var(--background-color-primary);
+  border: 1px solid var(--border-color-primary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+}
+
+/* 🔀 Карточка шага курса */
+.preview_step .preview__main {
+  flex: 2;
+}
+
+.preview_step .preview__aside {
+  flex: 1;
+  order: -1; /* ⬅ Меняем порядок: медиа слева */
+}
+
+/* 🧩 Карточка заголовка/главная */
+.preview_head {
+  gap: clamp(4rem, 6vw, 5rem);
+}
+
+.preview_head .preview__main {
+  flex: 1.5;
+  gap: var(--spacing-md);
+  align-self: center;
+}
+
+.preview_head .preview__media {
+  flex: 1;
+  border-radius: 1rem;
+  height: var(--max-media-height);
+}
+
+.preview_head .preview__header {
+  font-family: "Barlow";
+  line-height: 1.1;
+  color: var(--color-blue-500);
+  font-size: 2.8rem;
+}
+
+.preview_head .preview__description {
+  color: var(--font-color-secondary);
+  font-size: 1.2rem;
+}
+
+/* ==========================================================================
+  📱 Адаптивные стили (мобилки)
+   ========================================================================== */
+
+@media (max-width: 764px) {
+  .preview {
+    flex-direction: column-reverse;
+  }
+
+  .preview__media {
+    max-height: var(--max-media-height); /* 🧹 Обрезка по высоте */
+  }
+
+  .preview_step .preview__aside {
+    order: 1; /* ↩️ Возвращаем стандартный порядок */
+  }
+}

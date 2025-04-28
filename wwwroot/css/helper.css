@@ -1,27 +1,35 @@
 .card {
-    background-color: var(--background-color-primary);
-    border-radius: var(--radius-md);
-    padding: var(--spacing-md);
-    border: 1px solid var(--border-color-primary);
+  background-color: var(--background-color-primary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color-primary);
 }
 
 .col {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .row {
-    display: flex;
+  display: flex;
 }
 
 .sz-1 {
-    flex: 1;
+  flex: 1;
 }
 
 .sz-2 {
-    flex: 2;
+  flex: 2;
 }
 
 .gap-md {
-    gap: var(--spacing-md);
+  gap: var(--spacing-md);
+}
+
+.gap-lg {
+  gap: 5rem;
+}
+
+.pd-md {
+  padding: var(--spacing-md);
 }

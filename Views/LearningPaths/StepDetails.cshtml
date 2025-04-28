@@ -1,0 +1,47 @@
+@model StepDetailViewModel
+
+<div class="step-wrapper">
+    <div class="step">
+        <section class="step__body">
+            <div class="step__markdown">
+                @Html.Raw(Model.MarkdownContent)
+            </div>
+
+            @if (Model.NextStep is not null)
+            {
+                var routeValues = new { pathId = Model.LearningPathId, stepId = Model.NextStep.Id };
+                var link = @Url.Action("StepDetails", "LearningPaths", routeValues);
+                <div class="preview-wrapper preview_card">
+                    <h2 class="preview__header">Next step...</h2>
+
+                    <article class="preview preview_step">
+                        <!-- 🌟 Контейнер основного содержания -->
+                        <section class="preview__main">
+                            <!-- 🔗 Заголовок с переходом на другой ресурс -->
+                            <h2 class="preview__header">
+                                @Model.NextStep.Title
+                            </h2>
+
+                            <p class="preview__description">@Model.NextStep.Description</p>
+                        </section>
+                        <!-- 🎨 Медиа-контент карточки -->
+                        <a class="preview__aside">
+                            <img class="preview__media" src="@Model.NextStep.ImageUrl" alt="Learning path image">
+                        </a>
+                    </article>
+
+                    <a class="button button_red" href="@link">Continue</a>
+                </div>
+            }
+        </section>
+
+        <aside class="step__aside">
+            <nav class="step__navigation">
+                @foreach (var navbarStep in Model.NavbarSteps)
+                {
+                    <li>@navbarStep.Title</li>
+                }
+            </nav>
+        </aside>
+    </div>
+</div>
