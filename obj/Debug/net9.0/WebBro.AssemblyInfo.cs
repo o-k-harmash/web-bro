@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebBro")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bff75d09ef3bcc34e678ab8f5afeadaf250baa70")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+604100d8d5193d688bafff90b37fdf8aa5a4d3db")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebBro")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebBro")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

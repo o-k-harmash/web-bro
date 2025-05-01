@@ -5,31 +5,155 @@
   border: 1px solid var(--border-color-primary);
 }
 
+/* === Display Types === */
+.row {
+  display: flex;
+  flex-direction: row;
+}
 .col {
   display: flex;
   flex-direction: column;
 }
 
-.row {
-  display: flex;
+.grid {
+  display: grid;
+}
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-auto {
+  grid-template-columns: auto auto;
 }
 
+/* === Flex & Alignment === */
+.center {
+  align-items: center;
+  justify-content: center;
+}
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+.align-end {
+  align-items: flex-end;
+}
+.align-center {
+  align-items: center;
+}
+
+/* === Sizing === */
 .sz-1 {
   flex: 1;
 }
-
 .sz-2 {
   flex: 2;
 }
-
-.gap-md {
-  gap: var(--spacing-md);
+.w-full {
+  width: 100%;
+}
+.h-full {
+  height: 100%;
 }
 
+/* === Containers === */
+.container-sm {
+  max-width: 1000px;
+  margin-inline: auto;
+}
+.container-md {
+  max-width: 1200px;
+  margin-inline: auto;
+}
+.container-lg {
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+/* === Padding / Margin === */
+.pd-0 {
+  padding: 0;
+}
+.pd-sm {
+  padding: 1rem;
+}
+.pd-md {
+  padding: 2rem;
+}
+.pd-lg {
+  padding: 4rem;
+}
+
+.pd-b-sm {
+  padding-block: 1rem;
+}
+.pd-b-md {
+  padding-block: 2rem;
+}
+
+.pd-i-sm {
+  padding-inline: 1rem;
+}
+.pd-i-md {
+  padding-inline: 2rem;
+}
+
+.mg-0 {
+  margin: 0;
+}
+.mg-sm {
+  margin: 1rem;
+}
+.mg-md {
+  margin: 2rem;
+}
+.mg-lg {
+  margin: 4rem;
+}
+
+/* === Gaps === */
+.gap-sm {
+  gap: 1rem;
+}
+.gap-md {
+  gap: 2rem;
+}
 .gap-lg {
   gap: 5rem;
 }
 
-.pd-md {
-  padding: var(--spacing-md);
+/* === Text === */
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
+/* === Visibility === */
+.hidden {
+  display: none;
+}
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
 }

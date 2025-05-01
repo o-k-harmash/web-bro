@@ -60,21 +60,26 @@ body {
 
 h1,
 h2,
-h3 {
-  font-family: var(--font-family-primary);
-  font-weight: 500;
+h3,
+h4 {
   color: var(--font-color-secondary);
+  font-weight: 500;
+  font-family: var(--font-family-primary);
 }
 
 h1 {
-  font-size: 2.2rem;
+  font-size: 3rem;
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
 }
 
 h3 {
+  font-size: 1.8rem;
+}
+
+h4 {
   font-size: 1.2rem;
 }
 
@@ -132,7 +137,6 @@ h3 {
 
 .step-wrapper {
   background-color: hsl(0 0% 98%);
-  margin-bottom: 2rem;
 }
 
 .step {
@@ -184,7 +188,6 @@ h3 {
 .learning-head-wrapper {
   padding: 80px 30px;
   background-color: hsl(0 0% 98%);
-  margin-bottom: var(--spacing-lg);
 }
 
 .learning-head {
@@ -203,4 +206,94 @@ h3 {
   list-style-position: outside;
   list-style-type: "✅";
   margin-bottom: 0.65rem;
+}
+
+.learning-body-wrapper {
+  padding-top: 80px;
+  padding-bottom: 40px;
+  padding-inline: 40px;
+}
+
+.header {
+  gap: 40px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  padding-block: 20px;
+  padding-inline: 30px;
+  font-size: 0.92rem;
+  letter-spacing: 0.04rem;
+  height: 48px;
+  text-transform: uppercase;
+  font-style: italic;
+  font-family: "Barlow";
+  font-weight: 700;
+  color: black;
+  background-color: hsl(0 0% 98%);
+  border-bottom: 1px solid var(--border-color-primary);
+}
+
+.header img {
+  height: 28px;
+}
+
+.header ul {
+  display: flex;
+  gap: 20px;
+}
+
+.footer {
+  line-height: 1.5;
+  font-size: 1.2rem;
+  background-color: var(--color-white);
+  padding-top: 2.6rem;
+}
+
+.footer img {
+  height: 28px;
+}
+
+.footer__body {
+  font-family: var(--font-family-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 3.7rem;
+}
+
+.footer__body-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer__copyrating {
+  font-size: 0.9rem;
+  border-top: 1px solid var(--background-color-secondary);
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__copyrating ul {
+  display: flex;
+  gap: 0.92rem;
+  text-transform: capitalize;
+}
+
+.footer__body-stay-up input {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color-primary);
+}
+
+.footer__body-stay-up h3 {
+  color: var(--color-blue-500);
+}
+
+.footer__body-stay-up p {
+  color: var(--font-color-secondary);
+}
+
+.lp-idx-head {
+  display: flex;
+  height: 40rem;
+  background-color: hsl(0 0% 98%);
 }

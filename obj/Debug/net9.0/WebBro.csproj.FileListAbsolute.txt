@@ -18,11 +18,7 @@ C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\bin\Debug\net9.0\Web
 C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\bin\Debug\net9.0\WebBro.pdb
 C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\bin\Debug\net9.0\Markdig.dll
 C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\obj\Debug\net9.0\scopedcss\bundle\WebBro.styles.css
-C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\obj\Debug\net9.0\compressed\7jvsnhiray-3wkonxwen0.gz
-C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\obj\Debug\net9.0\compressed\gzopd45z2o-ucsd4dwzjy.gz
-C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\obj\Debug\net9.0\compressed\w32mzu242z-bjyast1hrh.gz
 C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\obj\Debug\net9.0\compressed\hgvup0inhr-rvjx81hw8e.gz
-C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\obj\Debug\net9.0\compressed\t7gmr93k4f-wwa5fa52sc.gz
 C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\obj\Debug\net9.0\compressed\405e8ale0z-61n19gt1b8.gz
 C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\obj\Debug\net9.0\staticwebassets.development.json
@@ -39,3 +35,7 @@ C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\obj\Debug\net9.0\ref
 C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\obj\Debug\net9.0\WebBro.pdb
 C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\obj\Debug\net9.0\WebBro.genruntimeconfig.cache
 C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\obj\Debug\net9.0\ref\WebBro.dll
+C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\obj\Debug\net9.0\compressed\7jvsnhiray-45lfop6a0z.gz
+C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\obj\Debug\net9.0\compressed\w32mzu242z-hnc3ul0759.gz
+C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\obj\Debug\net9.0\compressed\t7gmr93k4f-9vhm6qsrge.gz
+C:\Users\plpllaola\Desktop\frontendmentor\playground\WebBro\obj\Debug\net9.0\compressed\gzopd45z2o-eqa29kkw2q.gz

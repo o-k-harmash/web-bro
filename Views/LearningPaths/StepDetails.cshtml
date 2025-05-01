@@ -1,6 +1,6 @@
-@model StepDetailViewModel
+@model StepDetailsViewModel
 
-<div class="step-wrapper">
+<div class="step-wrapper pd-lg">
     <div class="step">
         <section class="step__body">
             <div class="step__markdown">
@@ -9,18 +9,16 @@
 
             @if (Model.NextStep is not null)
             {
-                var routeValues = new { pathId = Model.LearningPathId, stepId = Model.NextStep.Id };
-                var link = @Url.Action("StepDetails", "LearningPaths", routeValues);
                 <div class="preview-wrapper preview_card">
-                    <h2 class="preview__header">Next step...</h2>
+                    <h4 class="preview__header">Next step...</h4>
 
                     <article class="preview preview_step">
                         <!-- 🌟 Контейнер основного содержания -->
                         <section class="preview__main">
                             <!-- 🔗 Заголовок с переходом на другой ресурс -->
-                            <h2 class="preview__header">
-                                @Model.NextStep.Title
-                            </h2>
+                            <h4 class="preview__header">
+                                @Model.Title
+                            </h4>
 
                             <p class="preview__description">@Model.NextStep.Description</p>
                         </section>
@@ -30,17 +28,14 @@
                         </a>
                     </article>
 
-                    <a class="button button_red" href="@link">Continue</a>
+                    <a class="button button_red" href="@Model.NextStep.Link">Continue</a>
                 </div>
             }
         </section>
 
         <aside class="step__aside">
             <nav class="step__navigation">
-                @foreach (var navbarStep in Model.NavbarSteps)
-                {
-                    <li>@navbarStep.Title</li>
-                }
+
             </nav>
         </aside>
     </div>
