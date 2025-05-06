@@ -1,0 +1,58 @@
+@model StepDetailsViewModel
+
+<div class="step-wrapper pd-lg">
+    <div class="step">
+        <section class="step__body">
+            <div class="step__markdown">
+                @Html.Raw(Model.MarkdownContent)
+            </div>
+
+            @if (Model.NextStep != null)
+            {
+                <div class="preview-wrapper preview_card">
+                    <h4 class="preview__header">Next step...</h4>
+
+                    <article class="preview preview_step">
+                        <!-- 🌟 Контейнер основного содержания -->
+                        <section class="preview__main">
+                            <!-- 🔗 Заголовок с переходом на другой ресурс -->
+                            <h4 class="preview__header">
+                                @Model.NextStep.Title
+                            </h4>
+
+                            <p class="preview__description">@Model.NextStep.Description</p>
+                        </section>
+                        <!-- 🎨 Медиа-контент карточки -->
+                        <a class="preview__aside">
+                            <img class="preview__media" src="@Model.NextStep.ImageUrl" alt="Learning path image">
+                        </a>
+                    </article>
+                    @{
+                        var link = Url.Action("CompleteStep", "LearningPaths", new
+                        {
+                            learningPathId = Model.LearningPathId,
+                            stepId = Model.Id
+                        });
+                    }
+                    <a class="button button_red" href="@link">continue</a>
+                </div>
+            }
+            else
+            {
+                var link = Url.Action("CompleteStep", "LearningPaths", new
+                {
+                    learningPathId = Model.LearningPathId,
+                    stepId = Model.Id
+                });
+
+                <a class="button button_red" href="@link">finish</a>
+            }
+        </section>
+
+        <aside class="step__aside">
+            <nav class="step__navigation">
+
+            </nav>
+        </aside>
+    </div>
+</div>
