@@ -1,0 +1,102 @@
+@model LearningPathDetailsViewModel
+
+@{
+    ViewData["Title"] = "index";
+}
+
+<div class="learning-head-wrapper">
+    <section class="learning-head col gap-lg">
+
+        <article class="preview preview_head">
+            <!-- 🌟 Контейнер основного содержания -->
+            <section class="preview__main">
+                <!-- 🏷 Уровень сложности -->
+                <div class="preview__tag">
+                    <span class="preview__tag-danger">1</span>
+                    <span>newbie</span>
+                </div>
+
+                <h1 class="preview__header">
+                    @Model.Title
+                </h1>
+
+                <p class="preview__description">@Model.Description</p>
+
+                <div class="preview__progress-wrapper">
+                    @{
+                        var link = Url.Action("Continue", "LearningPaths", new
+                        {
+                            learningPathId = Model.Id,
+                        });
+                    }
+                    <a class="button button_blue" href="@link">Continue</a>
+
+                    <div class="preview__progress">
+                        <div class="preview__progress-bar" style="--data-percentage: @Model.Completion%;"></div>
+                        <div class="preview__progress-percentage">@Model.Completion% completed</div>
+                    </div>
+                </div>
+            </section>
+            <!-- 🎨 Медиа-контент карточки -->
+            <aside class="preview__aside">
+                <img class="preview__media" src="@Model.ImageUrl" alt="Learning path image">
+            </aside>
+        </article>
+        <div class="row gap-md">
+            <article class="preview_card sz-1 col gap-md">
+                <h3>✍️ Prerequisites</h3>
+                <p>It would be best to have a basic understanding of HTML and CSS. If you still need to learn the
+                    fundamentals, we link to some excellent resources inside the path. We recommend starting the path
+                    and using the resources to boost your knowledge before tackling the first challenge.</p>
+            </article>
+            <article class="preview_card sz-1 col gap-md">
+                <h3>💭 Learning outcomes</h3>
+                <ul>
+                    <li>Get up and running on Frontend Mentor</li>
+                    <li>Set up your development environment</li>
+                    <li>Learn Git and GitHub basics</li>
+                    <li>Learn to work with a design file</li>
+                    <li>Build your first projects</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+</div>
+
+<section class="learning-body-wrapper container">
+
+    <ul class="cource">
+        @foreach (var step in Model.Steps)
+        {
+            <li>
+                <article class="preview preview_card preview_step">
+                    <!-- 🌟 Контейнер основного содержания -->
+                    <section class="preview__main">
+                        <!-- 🔗 Заголовок с переходом на другой ресурс -->
+                        @{
+                            link = Url.Action("OpenStep", "LearningPaths", new
+                            {
+                                learningPathId = Model.Id,
+                                stepId = step.Id
+                            });
+                        }
+                        <h3 class="preview__header">
+                            <a href="@link">@step.Title</a>
+                        </h3>
+
+                        <p class="preview__description">@step.Description</p>
+
+                        <div class="preview__progress">
+                            <div class="preview__progress-bar" style="--data-percentage: @step.Completion%;"></div>
+                            <div class="preview__progress-percentage">@step.Completion% completed</div>
+                        </div>
+                    </section>
+                    <!-- 🎨 Медиа-контент карточки -->
+                    <a class="preview__aside" href="@link">
+                        <img class="preview__media" src="@step.ImageUrl" alt="Learning path image">
+                    </a>
+                </article>
+            </li>
+        }
+    </ul>
+</section>
