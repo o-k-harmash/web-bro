@@ -10,6 +10,7 @@ builder.Services.AddScoped<AppDbContext>();
 builder.Services.AddScoped<ILearningPathService, LearningPathService>();
 builder.Services.AddScoped<IProgressService, ProgressService>();
 builder.Services.AddScoped<INavigationService, NavigationService>();
+builder.Services.AddScoped<IStepService, StepService>();
 builder.Services.AddScoped<IMarkdownService, MarkdownService>();
 
 var app = builder.Build();
