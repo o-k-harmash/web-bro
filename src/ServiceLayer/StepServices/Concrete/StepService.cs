@@ -20,20 +20,29 @@ public class StepService : IStepService
         _markdownService = markdownService;
     }
 
+    /// <summary>
+    /// Use-case: Получить подробную информацию о шаге.
+    /// </summary>
+    /// <param name="learningPathId">ID пути обучения</param>
+    /// <param name="stepId">ID шага</param>
+    /// <returns>ViewModel с данными шага и ссылкой на следующий</returns>
     public StepDetailsViewModel GetStepDetails(int learningPathId, int stepId)
     {
+        // Загружаем путь с шагами и прогрессами
         var learningPath = _ctx.LearningPaths
             .AggregateWithStepsAndProgresses()
             .Single(s => s.LearningPathId == learningPathId);
 
+        // Извлекаем нужный шаг
         var currentStep = _navigationService
             .FindStepInPathById(learningPath, stepId);
 
+        // Определяем следующий шаг
         var nextStep = _navigationService
             .FindNextStepInPath(learningPath, currentStep);
 
+        // Стартуем прогресс по текущему шагу, если он ещё не начат
         _progressService.StartStepIfNeeded(currentStep);
-
         _ctx.SaveChanges();
 
         return new StepDetailsViewModel
@@ -41,8 +50,11 @@ public class StepService : IStepService
             Id = currentStep.StepId,
             LearningPathId = currentStep.LearningPathId,
             Title = currentStep.Title,
-            MarkdownContent = _markdownService
-                .GetMarkdownContent("README.md"),
+
+            // TODO: Подгрузка markdown пока заглушена на README.md
+            MarkdownContent = _markdownService.GetMarkdownContent("README.md"),
+
+            // Передаём информацию о следующем шаге (если есть)
             NextStep = nextStep != null
                 ? new PreviewViewModel
                 {
@@ -55,6 +67,11 @@ public class StepService : IStepService
         };
     }
 
+    /// <summary>
+    /// Use-case: Найти первый незавершённый шаг, чтобы продолжить обучение.
+    /// </summary>
+    /// <param name="learningPathId">ID пути обучения</param>
+    /// <returns>ID следующего шага или null</returns>
     public int? GetNextUnfinishedStep(int learningPathId)
     {
         var learningPath = _ctx.LearningPaths
@@ -67,6 +84,12 @@ public class StepService : IStepService
         return continueStep?.StepId;
     }
 
+    /// <summary>
+    /// Use-case: Завершить текущий шаг и вернуть ID следующего шага.
+    /// </summary>
+    /// <param name="learningPathId">ID пути</param>
+    /// <param name="currentStepId">ID текущего шага</param>
+    /// <returns>ID следующего шага (или null, если путь завершён)</returns>
     public int? CompleteStep(int learningPathId, int currentStepId)
     {
         var learningPath = _ctx.LearningPaths
@@ -79,8 +102,8 @@ public class StepService : IStepService
         var nextStep = _navigationService
             .FindNextStepInPath(learningPath, currentStep);
 
-        _progressService.AddCompleteForStepProgress(currentStep, 1f);
-
+        // Отмечаем шаг завершённым (веса прогресса жёстко заданы — 1f)
+        _progressService.AddCompleteForStepProgress(currentStep, StepCompletion.Completed);
         _ctx.SaveChanges();
 
         return nextStep?.StepId;
