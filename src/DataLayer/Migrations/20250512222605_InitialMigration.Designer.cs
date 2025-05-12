@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250504160542_InitialMigration")]
+    [Migration("20250512222605_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -24,6 +24,68 @@ namespace DataLayer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("WebBro.DataLayer.EfClasses.Article", b =>
+                {
+                    b.Property<int>("ArticleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ArticleId"));
+
+                    b.Property<string>("ArticleMarkdown")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("StepId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ArticleId");
+
+                    b.HasIndex("StepId")
+                        .IsUnique();
+
+                    b.ToTable("Articles");
+                });
+
+            modelBuilder.Entity("WebBro.DataLayer.EfClasses.Challenge", b =>
+                {
+                    b.Property<int>("ChallengeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("ChallengeId"));
+
+                    b.Property<string>("BriefMarkdown")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("DesktopPreviewImage")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("MobilePreviewImage")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("SolutionBaseRepository")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("StepId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("SuggestionMarkdown")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("ChallengeId");
+
+                    b.HasIndex("StepId")
+                        .IsUnique();
+
+                    b.ToTable("Challenges");
+                });
 
             modelBuilder.Entity("WebBro.DataLayer.EfClasses.LearningPath", b =>
                 {
@@ -79,6 +141,10 @@ namespace DataLayer.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("StepId");
 
                     b.HasIndex("LearningPathId");
@@ -114,6 +180,24 @@ namespace DataLayer.Migrations
                     b.ToTable("StepProgresses");
                 });
 
+            modelBuilder.Entity("WebBro.DataLayer.EfClasses.Article", b =>
+                {
+                    b.HasOne("WebBro.DataLayer.EfClasses.Step", null)
+                        .WithOne("Article")
+                        .HasForeignKey("WebBro.DataLayer.EfClasses.Article", "StepId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("WebBro.DataLayer.EfClasses.Challenge", b =>
+                {
+                    b.HasOne("WebBro.DataLayer.EfClasses.Step", null)
+                        .WithOne("Challenge")
+                        .HasForeignKey("WebBro.DataLayer.EfClasses.Challenge", "StepId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("WebBro.DataLayer.EfClasses.Step", b =>
                 {
                     b.HasOne("WebBro.DataLayer.EfClasses.LearningPath", null)
@@ -139,6 +223,10 @@ namespace DataLayer.Migrations
 
             modelBuilder.Entity("WebBro.DataLayer.EfClasses.Step", b =>
                 {
+                    b.Navigation("Article");
+
+                    b.Navigation("Challenge");
+
                     b.Navigation("StepProgress");
                 });
 #pragma warning restore 612, 618

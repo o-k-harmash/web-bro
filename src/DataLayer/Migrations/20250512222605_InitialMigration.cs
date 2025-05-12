@@ -38,6 +38,7 @@ namespace DataLayer.Migrations
                     Description = table.Column<string>(type: "text", nullable: false),
                     Order = table.Column<float>(type: "real", nullable: false),
                     ImageUrl = table.Column<string>(type: "text", nullable: false),
+                    Type = table.Column<string>(type: "text", nullable: false),
                     LearningPathId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -48,6 +49,50 @@ namespace DataLayer.Migrations
                         column: x => x.LearningPathId,
                         principalTable: "LearningPaths",
                         principalColumn: "LearningPathId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Articles",
+                columns: table => new
+                {
+                    ArticleId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ArticleMarkdown = table.Column<string>(type: "text", nullable: false),
+                    StepId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Articles", x => x.ArticleId);
+                    table.ForeignKey(
+                        name: "FK_Articles_Steps_StepId",
+                        column: x => x.StepId,
+                        principalTable: "Steps",
+                        principalColumn: "StepId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Challenges",
+                columns: table => new
+                {
+                    ChallengeId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    DesktopPreviewImage = table.Column<string>(type: "text", nullable: false),
+                    MobilePreviewImage = table.Column<string>(type: "text", nullable: false),
+                    BriefMarkdown = table.Column<string>(type: "text", nullable: false),
+                    SuggestionMarkdown = table.Column<string>(type: "text", nullable: false),
+                    SolutionBaseRepository = table.Column<string>(type: "text", nullable: false),
+                    StepId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Challenges", x => x.ChallengeId);
+                    table.ForeignKey(
+                        name: "FK_Challenges_Steps_StepId",
+                        column: x => x.StepId,
+                        principalTable: "Steps",
+                        principalColumn: "StepId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -74,6 +119,18 @@ namespace DataLayer.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Articles_StepId",
+                table: "Articles",
+                column: "StepId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Challenges_StepId",
+                table: "Challenges",
+                column: "StepId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_StepProgresses_StepId",
                 table: "StepProgresses",
                 column: "StepId",
@@ -88,6 +145,12 @@ namespace DataLayer.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Articles");
+
+            migrationBuilder.DropTable(
+                name: "Challenges");
+
             migrationBuilder.DropTable(
                 name: "StepProgresses");
 

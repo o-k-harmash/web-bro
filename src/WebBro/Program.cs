@@ -1,5 +1,7 @@
 using DataLayer;
 using WebBro.DataLayer.EfClasses;
+using WebBro.Services.Articles;
+using WebBro.Services.Challenges;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +12,9 @@ builder.Services.AddScoped<AppDbContext>();
 builder.Services.AddScoped<ILearningPathService, LearningPathService>();
 builder.Services.AddScoped<IProgressService, ProgressService>();
 builder.Services.AddScoped<INavigationService, NavigationService>();
-builder.Services.AddScoped<IStepService, StepService>();
 builder.Services.AddScoped<IMarkdownService, MarkdownService>();
+builder.Services.AddScoped<IChallengeService, ChallengeService>();
+builder.Services.AddScoped<IArticleService, ArticleService>();
 
 var app = builder.Build();
 
@@ -48,6 +51,7 @@ using (var scope = app.Services.CreateScope())
         {
             new Step
             {
+                Type = StepType.Articles,
                 StepId = 1,
                 LearningPathId = 1,
                 Title = "Introduction to Frontend Mentor 1",
@@ -57,6 +61,7 @@ using (var scope = app.Services.CreateScope())
             },
             new Step
             {
+                Type = StepType.Articles,
                 StepId = 2,
                 LearningPathId = 1,
                 Title = "Introduction to Frontend Mentor 2",
@@ -66,6 +71,7 @@ using (var scope = app.Services.CreateScope())
             },
             new Step
             {
+                Type = StepType.Challenges,
                 StepId = 3,
                 LearningPathId = 1,
                 Title = "Introduction to Frontend Mentor 3",
@@ -73,6 +79,36 @@ using (var scope = app.Services.CreateScope())
                 ImageUrl = "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto/Admin/rcfhsmc5x11kbdjorjwb.png",
                 Order = 3,
             },
+        });
+
+        ctx.Articles.AddRange(new List<Article>
+        {
+            new Article
+            {
+                ArticleId = 1,
+                ArticleMarkdown = "## Introduction to Frontend Mentor 1\n\nIn this article, we help you get up to speed with the Frontend Mentor platform and what we offer. After reading, you'll be aware of why we exist and will understand our platform's key areas.",
+                StepId = 1
+            },
+            new Article
+            {
+                ArticleId = 2,
+                ArticleMarkdown = "## Introduction to Frontend Mentor 2\n\nIn this article, we help you get up to speed with the Frontend Mentor platform and what we offer. After reading, you'll be aware of why we exist and will understand our platform's key areas.",
+                StepId = 2
+            }
+        });
+
+        ctx.Challenges.AddRange(new List<Challenge>
+        {
+            new Challenge
+            {
+                ChallengeId = 1,
+                StepId = 3,
+                DesktopPreviewImage = "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto/Challenges/desktop-preview.jpg",
+                MobilePreviewImage = "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto/Challenges/mobile-preview.jpg",
+                BriefMarkdown = "## Brief\n\nYour challenge is to build out this card component and get it looking as close to the design as possible.",
+                SuggestionMarkdown = "## Suggestions\n\n- Use a CSS reset or normalizer to help with browser inconsistencies.\n- Use the BEM naming convention for your class names.\n- Use CSS Grid or Flexbox for layout.",
+                SolutionBaseRepository = "https://github.com/o-k-harmash/web-bro/tree/main/src/WebBro/Views"
+            }
         });
     }
 

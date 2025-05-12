@@ -1,4 +1,4 @@
-public class PreviewViewModel
+public class LearningPathPreviewVm
 {
     public int Id { get; set; }
     public string Title { get; set; } = null!;

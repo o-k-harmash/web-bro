@@ -8,16 +8,13 @@ public class LearningPathsController : Controller
 {
     private readonly IWebHostEnvironment _hostEnvironment;
     private readonly ILearningPathService _learningPathService;
-    private readonly IStepService _stepService;
     private readonly ILogger<LearningPathsController> _logger;
 
     public LearningPathsController(
-        IStepService stepService,
         ILogger<LearningPathsController> logger,
         IWebHostEnvironment hostEnvironment,
         ILearningPathService learningPathService)
     {
-        _stepService = stepService;
         _logger = logger;
         _hostEnvironment = hostEnvironment;
         _learningPathService = learningPathService;
@@ -26,10 +23,22 @@ public class LearningPathsController : Controller
     // Use-case 0: Показ списка всех путей обучения (дашборд)
     // GET /learning-paths
     [HttpGet]
-    public IActionResult Index()
+    public IActionResult Cource()
     {
         var model = _learningPathService.GetLearningPathsPreview();
         return View(model);
+    }
+
+    [HttpGet("{learningPathId}/start")]
+    public IActionResult Start(int learningPathId)
+    {
+        var nextNav = _learningPathService.StartLearningPath(learningPathId);
+
+        return RedirectToAction("OpenStep", new
+        {
+            learningPathId,
+            stepId = nextNav.Id
+        });
     }
 
     // Use-case 1: Продолжить обучение — редирект на следующий незавершённый шаг
@@ -37,9 +46,9 @@ public class LearningPathsController : Controller
     [HttpGet("{learningPathId}/continue")]
     public IActionResult Continue(int learningPathId)
     {
-        var stepId = _stepService.GetNextUnfinishedStep(learningPathId);
+        var nextNav = _learningPathService.GetStepToContinue(learningPathId);
 
-        if (stepId == null)
+        if (nextNav == null)
         {
             // Если все шаги завершены — возвращаемся на список
             return RedirectToAction("Index");
@@ -49,17 +58,21 @@ public class LearningPathsController : Controller
         return RedirectToAction("OpenStep", new
         {
             learningPathId,
-            stepId = stepId
+            stepId = nextNav.Id
         });
     }
 
-    // Use-case 2: Открыть детальную страницу шага
-    // GET /learning-paths/{learningPathId}/steps/{stepId}
     [HttpGet("{learningPathId}/steps/{stepId}")]
     public IActionResult OpenStep(int learningPathId, int stepId)
     {
-        var vm = _stepService.GetStepDetails(learningPathId, stepId);
-        return View("StepDetails", vm);
+        var nextNav = _learningPathService.OpenStep(learningPathId, stepId);
+
+        // Возвращаем вью с навигационной моделью
+        return RedirectToAction(nextNav.Stage, nextNav.Type, new
+        {
+            learningPathId,
+            stepId = nextNav.Id
+        });
     }
 
     // Use-case 3: Завершить текущий шаг и перейти к следующему
@@ -67,19 +80,19 @@ public class LearningPathsController : Controller
     [HttpGet("{learningPathId}/steps/{stepId}/complete")]
     public IActionResult CompleteStep(int learningPathId, int stepId)
     {
-        var nextId = _stepService.CompleteStep(learningPathId, stepId);
+        var nextNav = _learningPathService.MarkStepAsCompletedAndProceed(learningPathId, stepId);
 
-        if (nextId == null)
+        if (nextNav == null)
         {
             // Если шагов больше нет — редирект на завершение пути
             return RedirectToAction("FinishPath", new { learningPathId });
         }
 
-        // Иначе редирект на следующий шаг
+        // Редирект на следующий шаг
         return RedirectToAction("OpenStep", new
         {
             learningPathId,
-            stepId = nextId
+            stepId = nextNav.Id
         });
     }
 
