@@ -1,52 +1,29 @@
 using Microsoft.AspNetCore.Mvc;
+using WebBro.Services.Challenges;
 
 namespace WebBro.Controllers;
 
-[Route("learning-paths/{pathId}/steps/{stepId}/challenge")]
+[Route("learning-paths/{learningPathId}/steps/{stepId}/challenge")]
 public class ChallengesController : Controller
 {
     private readonly ILogger<ChallengesController> _logger;
     private readonly IWebHostEnvironment _hostEnvironment;
+    private readonly IChallengeService _сhallengeService;
 
-    public ChallengesController(ILogger<ChallengesController> logger, IWebHostEnvironment hostEnvironment)
+    public ChallengesController(
+        ILogger<ChallengesController> logger,
+        IWebHostEnvironment hostEnvironment,
+        IChallengeService сhallengeService)
     {
         _logger = logger;
         _hostEnvironment = hostEnvironment;
-    }
-
-    [HttpGet]
-    public IActionResult Index()
-    {
-        return View();
+        _сhallengeService = сhallengeService;
     }
 
     [HttpGet("start")]
-    public IActionResult Start()
+    public IActionResult Start(int learningPathId, int stepId)
     {
-        return View();
-    }
-
-    [HttpGet("submit")]
-    public IActionResult Submit()
-    {
-        return View();
-    }
-
-    [HttpGet("improve")]
-    public IActionResult Improve()
-    {
-        return View();
-    }
-
-    [HttpGet("review")]
-    public IActionResult Review()
-    {
-        return View();
-    }
-
-    [HttpGet("complete")]
-    public IActionResult Complete()
-    {
-        return View();
+        var challengeVm = _сhallengeService.PrepareChallengeStep(learningPathId, stepId);
+        return View(challengeVm);
     }
 }

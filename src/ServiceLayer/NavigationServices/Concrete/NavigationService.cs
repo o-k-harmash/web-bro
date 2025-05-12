@@ -6,6 +6,8 @@ using WebBro.DataLayer.EfClasses;
 /// </summary>
 public class NavigationService : INavigationService
 {
+    public NavigationService() { }
+
     /// <summary>
     /// Use-case: найти первый незавершённый шаг в пути.
     /// Применяется при сценарии "продолжить обучение".
@@ -49,5 +51,49 @@ public class NavigationService : INavigationService
         return learningPath.Steps
             .OrderBy(sp => sp.Order)
             .First();
+    }
+
+    /// <summary>
+    /// Use-case: получить навигацию по шагу.
+    /// </summary>
+    /// <param name="learningPath"></param>
+    /// <param name="step"></param>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException"></exception>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
+    public StepNavigationVm GetStepNavigationVm(LearningPath learningPath, Step step)
+    {
+        var stepNavigationVm = new StepNavigationVm
+        {
+            Id = step.StepId,
+            LearningPathId = step.LearningPathId,
+            Type = step.Type,
+        };
+
+        if (step.Type == StepType.Articles)
+        {
+            stepNavigationVm.Stage = ArticleStage.Reading;
+            // Если шаг является артиклем, возвращаем его навигацию
+            return stepNavigationVm;
+        }
+
+        var progress = step.StepProgress;
+        if (progress == null)
+        {
+            throw new InvalidOperationException("Прогресс не найден");
+        }
+
+        // Вычисляем индекс стейджа
+        var index = (int)(progress.Completion / 0.2f);
+
+        // Проверяем, что индекс находится в пределах массива
+        if (index < 0 || index >= Challenge.Stages.Length)
+        {
+            throw new ArgumentOutOfRangeException(nameof(progress.Completion), "Invalid completion value");
+        }
+
+        stepNavigationVm.Stage = Challenge.Stages[index];
+
+        return stepNavigationVm;
     }
 }

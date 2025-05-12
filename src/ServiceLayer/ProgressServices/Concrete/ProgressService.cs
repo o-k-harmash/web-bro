@@ -63,4 +63,13 @@ public class ProgressService : IProgressService
                 ? step.StepProgress.Completion
                 : StepCompletion.NotStarted));
     }
+
+    public void MarkStepAsCompleted(Step step)
+    {
+        if (step.StepProgress == null)
+            return;
+
+        // Вложенная сущность StepProgress создаётся прямо на агрегате Step
+        step.StepProgress.Completion = StepCompletion.Completed;
+    }
 }

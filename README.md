@@ -1,87 +1,97 @@
-# Frontend Mentor - Product preview card component
-
-![Design preview for the Product preview card component coding challenge](data:image/jpeg;base64,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)
+# WebBro - Learning Path Platform
 
 ## Welcome! 👋
 
-Thanks for checking out this front-end coding challenge.
+WebBro is a learning path platform designed to guide users through structured learning experiences. This project is inspired by **Frontend Mentor** challenges but tailored for a full-stack learning experience.
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+---
 
-**To do this challenge, you need a basic understanding of HTML and CSS.**
+## Features
 
-## The challenge
+- **Learning Paths**: Users can explore and follow structured learning paths.
+- **Step Navigation**: Each learning path consists of steps (articles or challenges) with clear navigation.
+- **Progress Tracking**: Users can track their progress through each step and stage.
+- **Dynamic Step Stages**: Challenges are divided into stages, and progress is updated dynamically.
+- **Role-Based Access**: Future-proofed for user role validation and permissions.
 
-Your challenge is to build out this product preview card component and get it looking as close to the design as possible.
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+---
 
-Your users should be able to:
+## Business Scenarios
 
-- View the optimal layout depending on their device's screen size
-- See hover and focus states for interactive elements
+### 1. **Dashboard**
+- **URI**: `/learning-paths`
+- **Description**: Displays a list of all learning paths with progress previews.
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+### 2. **Start Learning Path**
+- **URI**: `/learning-paths/{learningPathId}/start`
+- **Description**: Initializes a learning path and redirects to the first step.
 
-## Where to find everything
+### 3. **Continue Learning**
+- **URI**: `/learning-paths/{learningPathId}/continue`
+- **Description**: Redirects the user to the next unfinished step in the learning path.
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design.
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`.
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
-You will find all the required assets in the `/images` folder. The assets are already optimized.
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+### 4. **Open Step**
+- **URI**: `/learning-paths/{learningPathId}/steps/{stepId}/open`
+- **Description**: Opens a specific step (article or challenge) and determines its stage.
 
-## Building your project
+### 5. **Complete Step**
+- **URI**: `/learning-paths/{learningPathId}/steps/{stepId}/complete`
+- **Description**: Marks the current step as completed and redirects to the next step.
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+---
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+## Technical Details
 
-## Deploying your project
+### Backend
+- **Framework**: ASP.NET Core
+- **Database**: Entity Framework Core with SQL Server
+- **Architecture**: Clean Architecture with layered services
+- **Key Services**:
+  - `LearningPathService`: Handles business logic for learning paths.
+  - `NavigationService`: Determines step navigation and stages.
+  - `ProgressService`: Tracks and updates user progress.
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+### Frontend
+- **Framework**: Razor Views
+- **Styling**: Tailwind CSS (or similar CSS framework)
+- **Dynamic Navigation**: Links are dynamically generated based on step type and stage.
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+---
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+## How to Run
 
-## Create a custom `README.md`
+1. Clone the repository:
+```bash
+    git clone https://github.com/your-repo/webbro.git
+    cd webbro
+```
+2. Set up the database:
+```bash
+    dotnet ef migrations add InitialMigration --startup-project .\src\WebBro --project .\src\DataLayer\ --output-dir Migrations
+    dotnet ef database update --startup-project .\src\WebBro --project .\src\DataLayer\
+```
+3. Run the application:
+```bash
+   dotnet run --project .\src\WebBro
+```
+4. Open your browser and navigate to:
+```bash
+    http://localhost:5000/learning-paths
+```
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+---
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+## Future Enhancements
+- **User Authentication**: Add role-based access control for steps and paths.
+- **Advanced Analytics**: Provide detailed progress analytics for users.
+- **Customizable Paths**: Allow users to create and share their own learning paths.
+- **API Integration**: Expose RESTful APIs for external integrations.
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+---
 
-## Submitting your solution
+## Feedback
+We'd love to hear your thoughts! If you have any feedback or suggestions, feel free to open an issue or contribute to the project.
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+---
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
-
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community).
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback.
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+## Happy Learning! 🚀 ```

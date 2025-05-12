@@ -13,4 +13,6 @@ public class AppDbContext : DbContext
     public DbSet<LearningPath> LearningPaths { get; set; }
     public DbSet<Step> Steps { get; set; }
     public DbSet<StepProgress> StepProgresses { get; set; }
+    public DbSet<Challenge> Challenges { get; set; }
+    public DbSet<Article> Articles { get; set; }
 }
