@@ -3,17 +3,22 @@
 
 <head>
     <meta charset="utf-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>@ViewData["Title"] - Web Bro</title>
 
+    <!-- 🧼 Reset and base styles -->
     <link rel="stylesheet" href="~/css/reset.css" />
     <link rel="stylesheet" href="~/css/helper.css" />
+
+    <!-- 🧱 Component styles -->
     <link rel="stylesheet" href="~/css/_Button.css" />
     <link rel="stylesheet" href="~/css/_PreviewCard.css" />
     <link rel="stylesheet" href="~/css/index.css" />
+    <link rel="stylesheet" href="~/css/_Footer.css" />
+    <link rel="stylesheet" href="~/css/_Header.css" />
+    <link rel="stylesheet" href="~/css/_MenuToggle.css" />
 
+    <!-- 🔤 Fonts -->
     <!-- Barlow  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,101 +35,129 @@
 </head>
 
 <body class="col justify-between">
-    <header class="header">
-        <a href="">
+
+    <!-- 🔝 Header -->
+    <header class="site-header">
+        <!-- 🔗 Logo -->
+        <a href="/" class="site-header__logo">
             <img src="https://www.frontendmentor.io/_next/image?url=%2Fstatic%2Fimages%2Flogo-desktop.svg&w=256&q=75"
-                alt="">
+                alt="Frontend Mentor Logo">
         </a>
 
-        <nav>
-            <ul>
-                <li><a href="">learning paths</a></li>
-                <li><a href="">challenges</a></li>
-                <li><a href="">solutions</a></li>
-                <li><a href="">articles</a></li>
+        <!-- 🍔 Menu Toggle Button (Mobile) -->
+        <button class="menu-toggle" aria-label="Open menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- 🧭 Main Navigation -->
+        <nav class="site-header__nav" aria-label="Main navigation">
+            <ul class="site-header__nav-list">
+                <li class="site-header__nav-item"><a href="">Learning Paths</a></li>
+                <li class="site-header__nav-item"><a href="">Challenges</a></li>
+                <li class="site-header__nav-item"><a href="">Solutions</a></li>
+                <li class="site-header__nav-item"><a href="">Articles</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- 🧩 Main Content -->
     <main>
         @RenderBody()
     </main>
 
-    <footer class="footer footer__body">
+    <!-- 🔚 Footer -->
+    <footer class="site-footer">
+
+        <!-- 📦 Top section (branding & socials) -->
         <div class="pd-i-md">
-            <section class="container-lg"> <a href=""> <img
+            <header class="footer__top container-lg">
+                <a href="">
+                    <img class="footer__branding"
                         src="https://www.frontendmentor.io/_next/image?url=%2Fstatic%2Fimages%2Flogo-desktop.svg&w=256&q=75"
-                        alt=""></a></section>
+                        alt="">
+                </a>
+                <nav class="footer__social"></nav>
+            </header>
         </div>
+
+        <!-- 🧭 Main footer section -->
         <div class="pd-i-md">
-            <section class="row justify-between container-lg gap-lg">
-                <div class="footer__body-stay-up col gap-sm sz-1">
-                    <h4>Stay up to date</h4>
+            <main class="footer__main justify-between container-lg gap-lg row wrap">
+
+                <!-- 📬 Newsletter form -->
+                <article class="footer__newsletter col gap-sm sz-1">
+                    <h4 class="footer__newsletter-title">Stay up to date</h4>
                     <p>with new challenges, featured solutions, selected articles, and our latest news</p>
-                    <form class="row gap-sm justify-between">
+                    <form class="row gap-sm justify-between wrap">
                         <input class="sz-2 pd-i-sm" type="text" placeholder="email@example.com">
                         <button class="button button_red sz-1">subscribe</button>
                     </form>
-                </div>
+                </article>
 
-                <div class="row sz-2 justify-between gap-sm">
-                    <div class="footer__body-links col gap-sm">
-                        <h4>Frontend Mentor</h4>
-                        <nav>
-                            <ul class="col">
-                                <li><a href="">Unlock Pro</a></li>
-                                <li><a href="">Contact us</a></li>
-                                <li><a href="">FAQs</a></li>
-                                <li><a href="">Become a partner</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="footer__body-links col gap-sm">
-                        <h4>Explore</h4>
-                        <nav>
-                            <ul class="col">
-                                <li><a href="">Learning paths</a></li>
-                                <li><a href="">Challenges</a></li>
-                                <li><a href="">Solutions</a></li>
-                                <li><a href="">Articles</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="footer__body-links col gap-sm">
-                        <h4>Community</h4>
-                        <nav>
-                            <ul class="col">
-                                <li><a href="">Discord</a></li>
-                                <li><a href="">Guidelines</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="footer__body-links col gap-sm">
-                        <h4>For companies</h4>
-                        <nav>
-                            <ul class="col">
-                                <li><a href="">Hire developers</a></li>
-                                <li><a href="">Train developers</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+                <!-- 🔗 Links grouped by category -->
+                <nav class="footer__links gap-md justify-between row">
 
-            </section>
+                    <!-- 📁 Group 1 -->
+                    <div class="footer__links-group col gap-sm">
+                        <h4 class="footer__group-title">Frontend Mentor</h4>
+                        <ul class="footer__link-list col">
+                            <li><a href="">Unlock Pro</a></li>
+                            <li><a href="">Contact us</a></li>
+                            <li><a href="">FAQs</a></li>
+                            <li><a href="">Become a partner</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- 📁 Group 2 -->
+                    <div class="footer__links-group col gap-sm">
+                        <h4 class="footer__group-title">Explore</h4>
+                        <ul class="footer__link-list col">
+                            <li><a href="">Learning paths</a></li>
+                            <li><a href="">Challenges</a></li>
+                            <li><a href="">Solutions</a></li>
+                            <li><a href="">Articles</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- 📁 Group 3 -->
+                    <div class="footer__links-group col gap-sm">
+                        <h4 class="footer__group-title">Community</h4>
+                        <ul class="footer__link-list col">
+                            <li><a href="">Discord</a></li>
+                            <li><a href="">Guidelines</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- 📁 Group 4 -->
+                    <div class="footer__links-group col gap-sm">
+                        <h4 class="footer__group-title">For companies</h4>
+                        <ul class="footer__link-list col">
+                            <li><a href="">Hire developers</a></li>
+                            <li><a href="">Train developers</a></li>
+                        </ul>
+                    </div>
+
+                </nav>
+            </main>
         </div>
+
+        <!-- ⚖️ Legal info & copy -->
         <div class="pd-i-md">
-            <section class="footer__copyrating  pd-b-md container-lg ">
-                <p>© Frontend Mentor 2019 - 2025</p>
-                <nav>
-                    <ul>
+            <footer class="footer__bottom container-lg gap-sm pd-b-sm wrap">
+                <p class="footer__copyright">© Frontend Mentor 2019 - 2025</p>
+                <nav class="footer__legal">
+                    <ul class="row gap-sm wrap">
                         <li><a href="">terms</a></li>
                         <li><a href="">cookie policy</a></li>
                         <li><a href="">privacy policy</a></li>
                         <li><a href="">license</a></li>
                     </ul>
                 </nav>
-            </section>
+            </footer>
         </div>
+
     </footer>
 </body>
 

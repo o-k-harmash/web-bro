@@ -34,8 +34,8 @@ public class LearningPathService : ILearningPathService
         // Находим первый шаг и инициируем его прогресс при первом посещении
         var firstStep = _navigationService.FindFirstInPath(learningPath);
 
-        _progressService.StartStepIfNeeded(firstStep);
-        _ctx.SaveChanges();
+        // _progressService.StartStepIfNeeded(firstStep);
+        // _ctx.SaveChanges();
 
         // Формируем модель для вьюхи
         return new LearningPathDetailsVm
@@ -44,6 +44,8 @@ public class LearningPathService : ILearningPathService
             Title = learningPath.Title,
             Description = learningPath.Description,
             ImageUrl = learningPath.ImageUrl,
+
+            IsBegining = firstStep.StepProgress == null,
 
             // Общий процент завершения по всем шагам
             Completion = _progressService.GetPrecentegeFromStepProgress(learningPath.Steps),
@@ -57,6 +59,7 @@ public class LearningPathService : ILearningPathService
                     Title = sp.Title,
                     Description = sp.Description,
                     ImageUrl = sp.ImageUrl,
+                    IsOpen = sp.StepProgress != null,
                     Completion = _progressService.GetPrecentegeFromStepProgress(sp)
                 })
                 .ToList()
@@ -82,6 +85,7 @@ public class LearningPathService : ILearningPathService
                 Id = learningPath.LearningPathId,
                 Title = learningPath.Title,
                 Description = learningPath.Description,
+                IsOpen = true,
                 ImageUrl = learningPath.ImageUrl,
                 Completion = _progressService
                     .GetPrecentegeFromStepProgress(learningPath.Steps)
