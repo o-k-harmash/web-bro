@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace Webbro.V2;
 
@@ -20,7 +19,7 @@ public class LearningPathsController : Controller
         _learningPathService = learningPathService;
     }
 
-    // Use-case 0: Показ списка всех путей обучения (дашборд)
+    // Use-case 0: Display a list of all learning paths (dashboard)
     // GET /learning-paths
     [HttpGet]
     public IActionResult Cource()
@@ -29,6 +28,8 @@ public class LearningPathsController : Controller
         return View(model);
     }
 
+    // Use-case 1: Start a learning path
+    // GET /learning-paths/{learningPathId}/start
     [HttpGet("{learningPathId}/start")]
     public IActionResult Start(int learningPathId)
     {
@@ -41,20 +42,21 @@ public class LearningPathsController : Controller
         });
     }
 
-    // Use-case 1: Продолжить обучение — редирект на следующий незавершённый шаг
+    // Use-case 2: Continue learning — redirect to the next unfinished step
     // GET /learning-paths/{learningPathId}/continue
     [HttpGet("{learningPathId}/continue")]
     public IActionResult Continue(int learningPathId)
     {
+        //поправить поиск шагов проблема не видит что шаг не завершен по стейджам
         var nextNav = _learningPathService.GetStepToContinue(learningPathId);
 
         if (nextNav == null)
         {
-            // Если все шаги завершены — возвращаемся на список
-            return RedirectToAction("Index");
+            // If all steps are completed — redirect to the list
+            return RedirectToAction("Cource");
         }
 
-        // Редирект на следующий шаг
+        // Redirect to the next step
         return RedirectToAction("OpenStep", new
         {
             learningPathId,
@@ -62,12 +64,14 @@ public class LearningPathsController : Controller
         });
     }
 
+    // Use-case 3: Open a specific step in the learning path
+    // GET /learning-paths/{learningPathId}/steps/{stepId}
     [HttpGet("{learningPathId}/steps/{stepId}")]
     public IActionResult OpenStep(int learningPathId, int stepId)
     {
         var nextNav = _learningPathService.OpenStep(learningPathId, stepId);
 
-        // Возвращаем вью с навигационной моделью
+        // Return a view with the navigation model
         return RedirectToAction(nextNav.Stage, nextNav.Type, new
         {
             learningPathId,
@@ -75,7 +79,7 @@ public class LearningPathsController : Controller
         });
     }
 
-    // Use-case 3: Завершить текущий шаг и перейти к следующему
+    // Use-case 4: Complete the current step and proceed to the next one
     // GET /learning-paths/{learningPathId}/steps/{stepId}/complete
     [HttpGet("{learningPathId}/steps/{stepId}/complete")]
     public IActionResult CompleteStep(int learningPathId, int stepId)
@@ -84,11 +88,11 @@ public class LearningPathsController : Controller
 
         if (nextNav == null)
         {
-            // Если шагов больше нет — редирект на завершение пути
+            // If there are no more steps — redirect to finish the path
             return RedirectToAction("FinishPath", new { learningPathId });
         }
 
-        // Редирект на следующий шаг
+        // Redirect to the next step
         return RedirectToAction("OpenStep", new
         {
             learningPathId,
@@ -96,16 +100,16 @@ public class LearningPathsController : Controller
         });
     }
 
-    // Use-case 4 (опционально): Завершение пути — возможно экран благодарности или поздравление
+    // Use-case 5: Finish the learning path — optional thank you or congratulations screen
     // GET /learning-paths/{learningPathId}/finish
     [HttpGet("{learningPathId}/finish")]
     public IActionResult FinishPath(int learningPathId)
     {
-        // Пока просто редирект на список
-        return RedirectToAction("Index");
+        // For now, just redirect to the list
+        return RedirectToAction("Cource");
     }
 
-    // Use-case 5: Детали всего пути обучения с прогрессом по шагам
+    // Use-case 6: View details of the entire learning path with progress by steps
     // GET /learning-paths/{learningPathId}/steps
     [HttpGet("{learningPathId}/steps")]
     public IActionResult Details(int learningPathId)

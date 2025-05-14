@@ -1,9 +1,9 @@
 @model ArticleReadVm
 
-<div class="step-wrapper pd-lg">
-    <div class="step">
-        <section class="step__body">
-            <div class="step__markdown">
+<section class="step-screen step-screen_article">
+    <div class="step-screen__content">
+        <main class="step-screen__main">
+            <div class="step-screen__markdown">
                 @Html.Raw(Model.MarkdownContent)
             </div>
 
@@ -47,12 +47,12 @@
 
                 <a class="button button_red" href="@link">finish</a>
             }
-        </section>
+        </main>
 
-        <aside class="step__aside">
+        <aside class="step-screen__aside">
             <nav class="step__navigation">
 
             </nav>
         </aside>
     </div>
-</div>
+</section>

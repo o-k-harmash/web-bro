@@ -6,4 +6,5 @@ public class LearningPathPreviewVm
     public string ImageUrl { get; set; } = null!;
     public float Order { get; set; }
     public int Completion { get; set; }
+    public bool IsOpen { get; set; } = false;
 }

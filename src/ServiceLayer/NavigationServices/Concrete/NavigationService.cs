@@ -16,7 +16,7 @@ public class NavigationService : INavigationService
     {
         return learningPath.Steps
             .OrderBy(sp => sp.Order)
-            .Where(sp => sp.StepProgress?.Completion == 0f)
+            .Where(sp => sp.StepProgress?.Completion < StepCompletion.Completed)
             .FirstOrDefault();
     }
 
@@ -30,6 +30,46 @@ public class NavigationService : INavigationService
             .Where(sp => sp.Order > step.Order)
             .OrderBy(sp => sp.Order)
             .FirstOrDefault();
+    }
+
+    /// <summary>
+    /// Use-case: найти следующий этап по порядку после текущего.
+    /// Применяется при завершении этапа для перехода к следующему.
+    /// </summary>
+    public string FindNextStage(Step step, string currentStage)
+    {
+        var stages = step.Stages;
+        if (stages == null || stages.Length == 0)
+        {
+            throw new InvalidOperationException("Stage keys not found or empty");
+        }
+
+        Console.WriteLine($"Current stage: {currentStage}");
+        stages.ToList().ForEach(s => Console.WriteLine($" stage: {s}"));
+        var currentIndex = Array.IndexOf(stages, currentStage);
+
+        if (currentIndex < 0 || currentIndex >= stages.Length - 1)
+        {
+            throw new Exception("Нет следующего этапа для шага"); // Нет следующего этапа
+        }
+
+        return stages[currentIndex + 1];
+    }
+
+    public string FindFirstStage(Step step)
+    {
+        return step.Stages[0];
+    }
+
+    public StageProgress? FindStageProgressById(Step step, string stageKey)
+    {
+        //фикс скапиталайзами
+        var stageProgress = step.StageProgresses.FirstOrDefault(sp => string.Equals(sp.StageKey, stageKey, StringComparison.OrdinalIgnoreCase));
+        if (stageProgress == null)
+        {
+            return null;
+        }
+        return stageProgress;
     }
 
     /// <summary>
@@ -63,37 +103,19 @@ public class NavigationService : INavigationService
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     public StepNavigationVm GetStepNavigationVm(LearningPath learningPath, Step step)
     {
-        var stepNavigationVm = new StepNavigationVm
+        //можно переписать под стейдж прогресс модель и универсально с помощью степ стейдж поля
+        //для теста сортирую по айдишнику
+        var lastStageProgress = step.StageProgresses.OrderBy(sp => sp.StageProgressId).LastOrDefault();
+        if (lastStageProgress == null)
+        {
+            throw new InvalidOperationException("Прогресс не создан");
+        }
+        return new StepNavigationVm
         {
             Id = step.StepId,
             LearningPathId = step.LearningPathId,
             Type = step.Type,
-        };
-
-        if (step.Type == StepType.Articles)
-        {
-            stepNavigationVm.Stage = ArticleStage.Reading;
-            // Если шаг является артиклем, возвращаем его навигацию
-            return stepNavigationVm;
-        }
-
-        var progress = step.StepProgress;
-        if (progress == null)
-        {
-            throw new InvalidOperationException("Прогресс не найден");
-        }
-
-        // Вычисляем индекс стейджа
-        var index = (int)(progress.Completion / 0.2f);
-
-        // Проверяем, что индекс находится в пределах массива
-        if (index < 0 || index >= Challenge.Stages.Length)
-        {
-            throw new ArgumentOutOfRangeException(nameof(progress.Completion), "Invalid completion value");
-        }
-
-        stepNavigationVm.Stage = Challenge.Stages[index];
-
-        return stepNavigationVm;
+            Stage = lastStageProgress.StageKey
+        }; ;
     }
 }

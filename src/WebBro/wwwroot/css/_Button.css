@@ -1,6 +1,9 @@
 .button {
+  font-family: var(--font-family-secondary);
+  line-height: 1;
   color: white;
-  padding: 0.85rem;
+  padding-block: 1rem;
+  padding-inline: 2rem;
   border-radius: 9999px;
   font-weight: 700;
   font-size: 1.1rem;
@@ -17,4 +20,12 @@
 
 .button_blue {
   background-color: hsl(227 45% 44%);
+}
+
+.button_small {
+  padding-block: 2px;
+  padding-inline: 15px;
+  font-size: 0.9rem;
+  letter-spacing: normal;
+  line-height: 1.5;
 }

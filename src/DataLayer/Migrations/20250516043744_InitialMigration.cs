@@ -39,6 +39,7 @@ namespace DataLayer.Migrations
                     Order = table.Column<float>(type: "real", nullable: false),
                     ImageUrl = table.Column<string>(type: "text", nullable: false),
                     Type = table.Column<string>(type: "text", nullable: false),
+                    Stages = table.Column<string[]>(type: "text[]", nullable: false),
                     LearningPathId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -97,12 +98,33 @@ namespace DataLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "StageProgress",
+                columns: table => new
+                {
+                    StageProgressId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    StageKey = table.Column<string>(type: "text", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    StepId = table.Column<int>(type: "integer", nullable: false),
+                    Completion = table.Column<float>(type: "real", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StageProgress", x => x.StageProgressId);
+                    table.ForeignKey(
+                        name: "FK_StageProgress_Steps_StepId",
+                        column: x => x.StepId,
+                        principalTable: "Steps",
+                        principalColumn: "StepId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "StepProgresses",
                 columns: table => new
                 {
                     StepProgressId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Order = table.Column<float>(type: "real", nullable: false),
                     Completion = table.Column<float>(type: "real", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     StepId = table.Column<int>(type: "integer", nullable: false)
@@ -131,6 +153,11 @@ namespace DataLayer.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_StageProgress_StepId",
+                table: "StageProgress",
+                column: "StepId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_StepProgresses_StepId",
                 table: "StepProgresses",
                 column: "StepId",
@@ -150,6 +177,9 @@ namespace DataLayer.Migrations
 
             migrationBuilder.DropTable(
                 name: "Challenges");
+
+            migrationBuilder.DropTable(
+                name: "StageProgress");
 
             migrationBuilder.DropTable(
                 name: "StepProgresses");

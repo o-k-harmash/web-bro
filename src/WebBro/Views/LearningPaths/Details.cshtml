@@ -24,17 +24,22 @@
 
                 <div class="preview__progress-wrapper">
                     @{
-                        var link = Url.Action("Continue", "LearningPaths", new
-                        {
-                            learningPathId = Model.Id,
-                        });
+                        var action = Model.IsBegining ? "Start" : "Continue";
+                        var nextLink = Url.Action(action, "LearningPaths", new { learningPathId = Model.Id });
                     }
-                    <a class="button button_blue" href="@link">Continue</a>
-
-                    <div class="preview__progress">
-                        <div class="preview__progress-bar" style="--data-percentage: @Model.Completion%;"></div>
-                        <div class="preview__progress-percentage">@Model.Completion% completed</div>
-                    </div>
+                    @if (Model.IsBegining)
+                    {
+                        <a class="button button_red" href="@nextLink">Start</a>
+                        <div class="preview__progress"></div>
+                    }
+                    else
+                    {
+                        <a class="button button_blue" href="@nextLink">Continue</a>
+                        <div class="preview__progress">
+                            <div class="preview__progress-bar" style="--data-percentage: @Model.Completion%;"></div>
+                            <div class="preview__progress-percentage">@Model.Completion% completed</div>
+                        </div>
+                    }
                 </div>
             </section>
             <!-- 🎨 Медиа-контент карточки -->
@@ -42,24 +47,23 @@
                 <img class="preview__media" src="@Model.ImageUrl" alt="Learning path image">
             </aside>
         </article>
-        <div class="row gap-md">
-            <article class="preview_card sz-1 col gap-md">
+        <section class="row gap-md wrap">
+            <article class="card sz-1 col gap-md">
                 <h3>✍️ Prerequisites</h3>
                 <p>It would be best to have a basic understanding of HTML and CSS. If you still need to learn the
                     fundamentals, we link to some excellent resources inside the path. We recommend starting the path
                     and using the resources to boost your knowledge before tackling the first challenge.</p>
             </article>
-            <article class="preview_card sz-1 col gap-md">
+            <article class="card sz-1 col gap-md">
                 <h3>💭 Learning outcomes</h3>
                 <ul>
-                    <li>Get up and running on Frontend Mentor</li>
-                    <li>Set up your development environment</li>
-                    <li>Learn Git and GitHub basics</li>
-                    <li>Learn to work with a design file</li>
-                    <li>Build your first projects</li>
+                    @foreach (var step in Model.Steps)
+                    {
+                        <li>@step.Title</li>
+                    }
                 </ul>
             </article>
-        </div>
+        </section>
     </section>
 </div>
 
@@ -68,31 +72,35 @@
     <ul class="cource">
         @foreach (var step in Model.Steps)
         {
+            var stepLink = step.IsOpen
+            ? Url.Action("OpenStep", "LearningPaths", new { learningPathId = Model.Id, stepId = step.Id })
+            : "#";
+
             <li>
                 <article class="preview preview_card preview_step">
                     <!-- 🌟 Контейнер основного содержания -->
                     <section class="preview__main">
                         <!-- 🔗 Заголовок с переходом на другой ресурс -->
-                        @{
-                            link = Url.Action("OpenStep", "LearningPaths", new
-                            {
-                                learningPathId = Model.Id,
-                                stepId = step.Id
-                            });
-                        }
                         <h3 class="preview__header">
-                            <a href="@link">@step.Title</a>
+                            <a href="@stepLink">@step.Title</a>
                         </h3>
 
                         <p class="preview__description">@step.Description</p>
 
-                        <div class="preview__progress">
-                            <div class="preview__progress-bar" style="--data-percentage: @step.Completion%;"></div>
-                            <div class="preview__progress-percentage">@step.Completion% completed</div>
-                        </div>
+                        @if (step.IsOpen)
+                        {
+                            <div class="preview__progress">
+                                <div class="preview__progress-bar" style="--data-percentage: @step.Completion%;"></div>
+                                <div class="preview__progress-percentage">@step.Completion% completed</div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="preview__progress-percentage">🔒 closed</div>
+                        }
                     </section>
                     <!-- 🎨 Медиа-контент карточки -->
-                    <a class="preview__aside" href="@link">
+                    <a class="preview__aside" href="@stepLink">
                         <img class="preview__media" src="@step.ImageUrl" alt="Learning path image">
                     </a>
                 </article>

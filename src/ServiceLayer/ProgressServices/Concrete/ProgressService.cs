@@ -22,8 +22,23 @@ public class ProgressService : IProgressService
             StepId = step.StepId,
             Completion = StepCompletion.NotStarted,
             UpdatedAt = DateTime.UtcNow,
-            Order = step.Order
         };
+    }
+
+    //работать с объектом стейджа поскольку поиск необходим в разных местах и это вынесено в навигацию
+    public void StartStageIfNeeded(Step step, string stageKey)
+    {
+        var stageProgress = step.StageProgresses.FirstOrDefault(sp => sp.StageKey == stageKey);
+        if (stageProgress != null)
+            return;
+        
+        // Вложенная сущность StepProgress создаётся прямо на агрегате Step
+        step.StageProgresses.Add(new StageProgress
+        {
+            StepId = step.StepId,
+            StageKey = stageKey,
+            Completion = StepCompletion.NotStarted,
+        });
     }
 
     /// <summary>
@@ -71,5 +86,14 @@ public class ProgressService : IProgressService
 
         // Вложенная сущность StepProgress создаётся прямо на агрегате Step
         step.StepProgress.Completion = StepCompletion.Completed;
+    }
+
+    public void MarkStageAsCompleted(Step step, string stageKey)
+    {
+        var stageProgress = step.StageProgresses.FirstOrDefault(sp => sp.StageKey == stageKey);
+        if (stageProgress == null)
+            return;
+        // Вложенная сущность StepProgress создаётся прямо на агрегате Step
+        stageProgress.Completion = StepCompletion.Completed;
     }
 }

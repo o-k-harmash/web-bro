@@ -26,4 +26,42 @@ public class ChallengesController : Controller
         var challengeVm = _сhallengeService.PrepareChallengeStep(learningPathId, stepId);
         return View(challengeVm);
     }
+
+    [HttpGet("submit")]
+    public IActionResult Submit(int learningPathId, int stepId)
+    {
+        var challengeVm = _сhallengeService.PrepareChallengeStep(learningPathId, stepId);
+        return View(challengeVm);
+    }
+    [HttpGet("improve")]
+    public IActionResult Improve(int learningPathId, int stepId)
+    {
+        var challengeVm = _сhallengeService.PrepareChallengeStep(learningPathId, stepId);
+        return View(challengeVm);
+    }
+    [HttpGet("review")]
+    public IActionResult Review(int learningPathId, int stepId)
+    {
+        var challengeVm = _сhallengeService.PrepareChallengeStep(learningPathId, stepId);
+        return View(challengeVm);
+    }
+
+    [HttpGet("finish")]
+    public IActionResult Finish(int learningPathId, int stepId)
+    {
+        var challengeVm = _сhallengeService.PrepareChallengeStep(learningPathId, stepId);
+        return View(challengeVm);
+    }
+
+    [HttpGet("{stage}/continue")]
+    public IActionResult Continue(int learningPathId, int stepId, string stage)
+    {
+        var nextNav = _сhallengeService.CompleteChallengeStage(learningPathId, stepId, stage);
+
+        return RedirectToAction(nextNav.Stage, new
+        {
+            learningPathId,
+            stepId = nextNav.Id
+        });
+    }
 }

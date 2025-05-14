@@ -54,7 +54,7 @@ using (var scope = app.Services.CreateScope())
                 Type = StepType.Articles,
                 StepId = 1,
                 LearningPathId = 1,
-                Title = "Introduction to Frontend Mentor 1",
+                Title = "Introduction to Frontend Mentor",
                 Description = "In this article, we help you get up to speed with the Frontend Mentor platform and what we offer. After reading, you'll be aware of why we exist and will understand our platform's key areas.",
                 ImageUrl = "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto/Admin/rcfhsmc5x11kbdjorjwb.png",
                 Order = 1,
@@ -64,9 +64,9 @@ using (var scope = app.Services.CreateScope())
                 Type = StepType.Articles,
                 StepId = 2,
                 LearningPathId = 1,
-                Title = "Introduction to Frontend Mentor 2",
-                Description = "In this article, we help you get up to speed with the Frontend Mentor platform and what we offer. After reading, you'll be aware of why we exist and will understand our platform's key areas.",
-                ImageUrl = "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto/Admin/rcfhsmc5x11kbdjorjwb.png",
+                Title = "How to make the most out of the Frontend Mentor community",
+                Description = "Community is a huge part of everything we do at Frontend Mentor. In this article, we'll give you tips on how to make the most out of it so you can boost your skills and make friends doing it.",
+                ImageUrl = "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto/Admin/qswlctbp2ecfiqapuaiw.png",
                 Order = 2,
             },
             new Step
@@ -74,9 +74,9 @@ using (var scope = app.Services.CreateScope())
                 Type = StepType.Challenges,
                 StepId = 3,
                 LearningPathId = 1,
-                Title = "Introduction to Frontend Mentor 3",
-                Description = "In this article, we help you get up to speed with the Frontend Mentor platform and what we offer. After reading, you'll be aware of why we exist and will understand our platform's key areas.",
-                ImageUrl = "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto/Admin/rcfhsmc5x11kbdjorjwb.png",
+                Title = "Blog preview card",
+                Description = "This HTML & CSS-only challenge is a perfect project for beginners getting up to speed with HTML and CSS fundamentals, like HTML structure and the box model.",
+                ImageUrl = "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto/Challenges/cmab9xsatnq8m04w5ikl.jpg",
                 Order = 3,
             },
         });
@@ -86,13 +86,13 @@ using (var scope = app.Services.CreateScope())
             new Article
             {
                 ArticleId = 1,
-                ArticleMarkdown = "## Introduction to Frontend Mentor 1\n\nIn this article, we help you get up to speed with the Frontend Mentor platform and what we offer. After reading, you'll be aware of why we exist and will understand our platform's key areas.",
+                ArticleMarkdown = "README.md",
                 StepId = 1
             },
             new Article
             {
                 ArticleId = 2,
-                ArticleMarkdown = "## Introduction to Frontend Mentor 2\n\nIn this article, we help you get up to speed with the Frontend Mentor platform and what we offer. After reading, you'll be aware of why we exist and will understand our platform's key areas.",
+                ArticleMarkdown = "README.md",
                 StepId = 2
             }
         });
@@ -103,10 +103,10 @@ using (var scope = app.Services.CreateScope())
             {
                 ChallengeId = 1,
                 StepId = 3,
-                DesktopPreviewImage = "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto/Challenges/desktop-preview.jpg",
-                MobilePreviewImage = "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto/Challenges/mobile-preview.jpg",
-                BriefMarkdown = "## Brief\n\nYour challenge is to build out this card component and get it looking as close to the design as possible.",
-                SuggestionMarkdown = "## Suggestions\n\n- Use a CSS reset or normalizer to help with browser inconsistencies.\n- Use the BEM naming convention for your class names.\n- Use CSS Grid or Flexbox for layout.",
+                DesktopPreviewImage = "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto/Challenges/cmab9xsatnq8m04w5ikl.jpg",
+                MobilePreviewImage = "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto/Challenges/cmab9xsatnq8m04w5ikl.jpg",
+                BriefMarkdown = "README.md",
+                SuggestionMarkdown = "README.md",
                 SolutionBaseRepository = "https://github.com/o-k-harmash/web-bro/tree/main/src/WebBro/Views"
             }
         });

@@ -67,12 +67,12 @@ WebBro is a learning path platform designed to guide users through structured le
 ```
 2. Set up the database:
 ```bash
-    dotnet ef migrations add InitialMigration --startup-project .\src\WebBro --project .\src\DataLayer\ --output-dir Migrations
-    dotnet ef database update --startup-project .\src\WebBro --project .\src\DataLayer\
+    dotnet ef migrations add InitialMigration --startup-project ./src/WebBro --project ./src/DataLayer/ --output-dir Migrations
+    dotnet ef database update --startup-project ./src/WebBro --project ./src/DataLayer/
 ```
 3. Run the application:
 ```bash
-   dotnet run --project .\src\WebBro
+   dotnet run --project ./src/WebBro
 ```
 4. Open your browser and navigate to:
 ```bash

@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250512222605_InitialMigration")]
+    [Migration("20250516043744_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -24,6 +24,34 @@ namespace DataLayer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("StageProgress", b =>
+                {
+                    b.Property<int>("StageProgressId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("StageProgressId"));
+
+                    b.Property<float>("Completion")
+                        .HasColumnType("real");
+
+                    b.Property<string>("StageKey")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("StepId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("StageProgressId");
+
+                    b.HasIndex("StepId");
+
+                    b.ToTable("StageProgress");
+                });
 
             modelBuilder.Entity("WebBro.DataLayer.EfClasses.Article", b =>
                 {
@@ -137,6 +165,10 @@ namespace DataLayer.Migrations
                     b.Property<float>("Order")
                         .HasColumnType("real");
 
+                    b.PrimitiveCollection<string[]>("Stages")
+                        .IsRequired()
+                        .HasColumnType("text[]");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("text");
@@ -163,9 +195,6 @@ namespace DataLayer.Migrations
                     b.Property<float>("Completion")
                         .HasColumnType("real");
 
-                    b.Property<float>("Order")
-                        .HasColumnType("real");
-
                     b.Property<int>("StepId")
                         .HasColumnType("integer");
 
@@ -178,6 +207,15 @@ namespace DataLayer.Migrations
                         .IsUnique();
 
                     b.ToTable("StepProgresses");
+                });
+
+            modelBuilder.Entity("StageProgress", b =>
+                {
+                    b.HasOne("WebBro.DataLayer.EfClasses.Step", null)
+                        .WithMany("StageProgresses")
+                        .HasForeignKey("StepId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("WebBro.DataLayer.EfClasses.Article", b =>
@@ -226,6 +264,8 @@ namespace DataLayer.Migrations
                     b.Navigation("Article");
 
                     b.Navigation("Challenge");
+
+                    b.Navigation("StageProgresses");
 
                     b.Navigation("StepProgress");
                 });

@@ -10,7 +10,9 @@ public static class LearningPathQueries
     {
         return learningPath
             .Include(lp => lp.Steps)
-                .ThenInclude(sp => sp.StepProgress);
+                .ThenInclude(sp => sp.StepProgress)
+            .Include(lp => lp.Steps)
+                .ThenInclude(sp => sp.StageProgresses);
     }
 
     /// <summary>

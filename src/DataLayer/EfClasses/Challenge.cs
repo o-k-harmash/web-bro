@@ -2,11 +2,11 @@ namespace WebBro.DataLayer.EfClasses;
 
 public static class ChallengeStage
 {
-    public const string Starting = "Start";
-    public const string Submiting = "Submit";
-    public const string Reviewing = "Review";
-    public const string Improving = "Improve";
-    public const string Finishing = "Finish";
+    public const string Starting = "start";
+    public const string Submiting = "submit";
+    public const string Reviewing = "review";
+    public const string Improving = "improve";
+    public const string Finishing = "finish";
 }
 
 public class Challenge
@@ -27,7 +27,6 @@ public class Challenge
             ChallengeStage.Submiting, // 0.2f
             ChallengeStage.Improving, // 0.4f
             ChallengeStage.Reviewing, // 0.6f
-            ChallengeStage.Submiting, // 0.8f
             ChallengeStage.Finishing  // 1.0f
         };
 

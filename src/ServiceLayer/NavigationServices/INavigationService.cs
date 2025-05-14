@@ -2,6 +2,8 @@ using WebBro.DataLayer.EfClasses;
 
 public interface INavigationService
 {
+    StageProgress? FindStageProgressById(Step step, string stageKey);
+    string FindNextStage(Step step, string currentStage);
     Step FindFirstInPath(LearningPath learningPath);
     Step? FindContinueStepInPath(LearningPath learningPath);
     Step? FindNextStepInPath(LearningPath learningPath, Step step);

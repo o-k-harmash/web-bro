@@ -64,7 +64,15 @@ namespace WebBro.Services.Challenges
                 SuggestionMarkdown = _markdownService
                     .GetMarkdownContent(challenge.SuggestionMarkdown),
 
-                SolutionBaseRepository = challenge.SolutionBaseRepository
+                SolutionBaseRepository = challenge.SolutionBaseRepository,
+
+                Step = new LearningPathPreviewVm
+                {
+                    Id = currentStep.StepId,
+                    Title = currentStep.Title,
+                    Description = currentStep.Description,
+                    ImageUrl = currentStep.ImageUrl,
+                }
             };
         }
 
@@ -73,11 +81,11 @@ namespace WebBro.Services.Challenges
             throw new NotImplementedException();
         }
 
-        public void CompleteChallengeStage(int learningPathId, int stepId)
+        public StepNavigationVm CompleteChallengeStage(int learningPathId, int stepId, string stage)
         {
             // 1. Загружаем путь с шагами и прогрессами
             var learningPath = _ctx.LearningPaths
-                .IncludeStepsWithChallenges()
+                .IncludeStepsWithProgressAndChallenges()
                 .FirstOrDefault(lp => lp.LearningPathId == learningPathId);
 
             if (learningPath == null)
@@ -98,8 +106,39 @@ namespace WebBro.Services.Challenges
                 throw new InvalidOperationException("Шаг не является челленджем");
             }
 
-            _progressService.AddCompleteForStepProgress(currentStep, ChallangeCompletion.CompletedStage);
-            _ctx.SaveChanges();
+            // _progressService.AddCompleteForStepProgress(currentStep, ChallangeCompletion.CompletedStage);
+            // _ctx.SaveChanges();
+
+            var stageProgress = _navigationService.FindStageProgressById(currentStep, stage);
+            if (stageProgress == null)
+            {
+                throw new InvalidOperationException("Прогресс не создан");
+            }
+
+            var nextStage = _navigationService.FindNextStage(currentStep, stage);
+            Console.WriteLine($" stage: {stage}");
+            Console.WriteLine($"Next stage: {nextStage}");
+            currentStep.Stages.ToList().ForEach(s => Console.WriteLine($" stage: {s}"));
+
+            if (stageProgress.Completion != StepCompletion.Completed)
+            {
+
+                _progressService.StartStageIfNeeded(currentStep, nextStage);
+                _progressService.AddCompleteForStepProgress(currentStep, ChallangeCompletion.CompletedStage);
+                _progressService.MarkStageAsCompleted(currentStep, stage);
+                _ctx.SaveChanges();
+            }
+
+            //завершить текущий стейдж +
+            //и возможно обновить прогресс шага если текущий стейдж не был завешен +
+
+            return new StepNavigationVm
+            {
+                Id = currentStep.StepId,
+                LearningPathId = currentStep.LearningPathId,
+                Stage = nextStage
+                //найти следующий стейдж +
+            };
         }
     }
 }
