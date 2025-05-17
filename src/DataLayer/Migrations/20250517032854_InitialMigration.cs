@@ -39,7 +39,6 @@ namespace DataLayer.Migrations
                     Order = table.Column<float>(type: "real", nullable: false),
                     ImageUrl = table.Column<string>(type: "text", nullable: false),
                     Type = table.Column<string>(type: "text", nullable: false),
-                    Stages = table.Column<string[]>(type: "text[]", nullable: false),
                     LearningPathId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -98,28 +97,6 @@ namespace DataLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "StageProgress",
-                columns: table => new
-                {
-                    StageProgressId = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    StageKey = table.Column<string>(type: "text", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    StepId = table.Column<int>(type: "integer", nullable: false),
-                    Completion = table.Column<float>(type: "real", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_StageProgress", x => x.StageProgressId);
-                    table.ForeignKey(
-                        name: "FK_StageProgress_Steps_StepId",
-                        column: x => x.StepId,
-                        principalTable: "Steps",
-                        principalColumn: "StepId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "StepProgresses",
                 columns: table => new
                 {
@@ -134,6 +111,35 @@ namespace DataLayer.Migrations
                     table.PrimaryKey("PK_StepProgresses", x => x.StepProgressId);
                     table.ForeignKey(
                         name: "FK_StepProgresses_Steps_StepId",
+                        column: x => x.StepId,
+                        principalTable: "Steps",
+                        principalColumn: "StepId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "StageProgress",
+                columns: table => new
+                {
+                    StageProgressId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    StageKey = table.Column<string>(type: "text", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    StepId = table.Column<int>(type: "integer", nullable: false),
+                    Completion = table.Column<float>(type: "real", nullable: false),
+                    Order = table.Column<float>(type: "real", nullable: false),
+                    StepProgressId = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StageProgress", x => x.StageProgressId);
+                    table.ForeignKey(
+                        name: "FK_StageProgress_StepProgresses_StepProgressId",
+                        column: x => x.StepProgressId,
+                        principalTable: "StepProgresses",
+                        principalColumn: "StepProgressId");
+                    table.ForeignKey(
+                        name: "FK_StageProgress_Steps_StepId",
                         column: x => x.StepId,
                         principalTable: "Steps",
                         principalColumn: "StepId",
@@ -156,6 +162,11 @@ namespace DataLayer.Migrations
                 name: "IX_StageProgress_StepId",
                 table: "StageProgress",
                 column: "StepId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StageProgress_StepProgressId",
+                table: "StageProgress",
+                column: "StepProgressId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_StepProgresses_StepId",

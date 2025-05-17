@@ -81,7 +81,7 @@ namespace WebBro.Services.Challenges
             throw new NotImplementedException();
         }
 
-        public StepNavigationVm CompleteChallengeStage(int learningPathId, int stepId, string stage)
+        public StepNavigationVm CompleteChallengeStage(int learningPathId, int stepId, string stageKey)
         {
             // 1. Загружаем путь с шагами и прогрессами
             var learningPath = _ctx.LearningPaths
@@ -106,28 +106,12 @@ namespace WebBro.Services.Challenges
                 throw new InvalidOperationException("Шаг не является челленджем");
             }
 
-            // _progressService.AddCompleteForStepProgress(currentStep, ChallangeCompletion.CompletedStage);
-            // _ctx.SaveChanges();
+            var stage = _navigationService.FindStageByKeyV2(currentStep, stageKey);
+            var nextStage = _navigationService.FindNextStageInStepV2(currentStep, stage);
 
-            var stageProgress = _navigationService.FindStageProgressById(currentStep, stage);
-            if (stageProgress == null)
-            {
-                throw new InvalidOperationException("Прогресс не создан");
-            }
-
-            var nextStage = _navigationService.FindNextStage(currentStep, stage);
-            Console.WriteLine($" stage: {stage}");
-            Console.WriteLine($"Next stage: {nextStage}");
-            currentStep.Stages.ToList().ForEach(s => Console.WriteLine($" stage: {s}"));
-
-            if (stageProgress.Completion != StepCompletion.Completed)
-            {
-
-                _progressService.StartStageIfNeeded(currentStep, nextStage);
-                _progressService.AddCompleteForStepProgress(currentStep, ChallangeCompletion.CompletedStage);
-                _progressService.MarkStageAsCompleted(currentStep, stage);
-                _ctx.SaveChanges();
-            }
+            _progressService.MarkStageAsCompletedV2(currentStep, stage);
+            _progressService.StartStageIfNeededV2(currentStep, nextStage);
+            _ctx.SaveChanges();
 
             //завершить текущий стейдж +
             //и возможно обновить прогресс шага если текущий стейдж не был завешен +
@@ -136,7 +120,7 @@ namespace WebBro.Services.Challenges
             {
                 Id = currentStep.StepId,
                 LearningPathId = currentStep.LearningPathId,
-                Stage = nextStage
+                Stage = nextStage.StageKey
                 //найти следующий стейдж +
             };
         }

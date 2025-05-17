@@ -116,8 +116,7 @@ public class LearningPathService : ILearningPathService
         }
 
         // Инициируем прогресс первого шага, если он ещё не начат
-        _progressService.StartStepIfNeeded(nextStep);
-        _progressService.StartStageIfNeeded(nextStep, nextStep.Stages[0]);
+        _progressService.StartStepIfNeededV2(nextStep);
         _ctx.SaveChanges();
 
         // Возвращаем ID первого шага
@@ -149,24 +148,18 @@ public class LearningPathService : ILearningPathService
         }
 
         // Отмечаем шаг завершённым (веса прогресса жёстко заданы — 1f)
-        _progressService.MarkStepAsCompleted(currentStep);
-        _progressService.MarkStageAsCompleted(currentStep, currentStep.Stages[currentStep.Stages.Length - 1]);
-        _ctx.SaveChanges();
+        _progressService.MarkStepAsCompletedV2(currentStep);
+
         var nextStep = _navigationService.FindNextStepInPath(learningPath, currentStep);
         if (nextStep == null)
         {
+            _ctx.SaveChanges();
             return null;
         }
 
-
-        _progressService.StartStepIfNeeded(nextStep);
-        //этот этап должен быть частью логики добавления прогресса шага как одно целое аддстеппрогресс+аддферстстейджпрогресс
-        //вопрос о правильности поиска стейджа появляются ветвления
-
-        _progressService.StartStageIfNeeded(nextStep, nextStep.Stages[0]);
-        //открыть первый стейдж если он не открыт
-
+        _progressService.StartStepIfNeededV2(nextStep);
         _ctx.SaveChanges();
+
         return new StepNavigationVm
         {
             Id = nextStep.StepId,

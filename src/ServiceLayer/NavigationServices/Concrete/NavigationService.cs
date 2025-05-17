@@ -33,46 +33,6 @@ public class NavigationService : INavigationService
     }
 
     /// <summary>
-    /// Use-case: найти следующий этап по порядку после текущего.
-    /// Применяется при завершении этапа для перехода к следующему.
-    /// </summary>
-    public string FindNextStage(Step step, string currentStage)
-    {
-        var stages = step.Stages;
-        if (stages == null || stages.Length == 0)
-        {
-            throw new InvalidOperationException("Stage keys not found or empty");
-        }
-
-        Console.WriteLine($"Current stage: {currentStage}");
-        stages.ToList().ForEach(s => Console.WriteLine($" stage: {s}"));
-        var currentIndex = Array.IndexOf(stages, currentStage);
-
-        if (currentIndex < 0 || currentIndex >= stages.Length - 1)
-        {
-            throw new Exception("Нет следующего этапа для шага"); // Нет следующего этапа
-        }
-
-        return stages[currentIndex + 1];
-    }
-
-    public string FindFirstStage(Step step)
-    {
-        return step.Stages[0];
-    }
-
-    public StageProgress? FindStageProgressById(Step step, string stageKey)
-    {
-        //фикс скапиталайзами
-        var stageProgress = step.StageProgresses.FirstOrDefault(sp => string.Equals(sp.StageKey, stageKey, StringComparison.OrdinalIgnoreCase));
-        if (stageProgress == null)
-        {
-            return null;
-        }
-        return stageProgress;
-    }
-
-    /// <summary>
     /// Use-case: получить конкретный шаг по ID.
     /// Используется при открытии конкретного шага пользователем.
     /// </summary>
@@ -105,7 +65,10 @@ public class NavigationService : INavigationService
     {
         //можно переписать под стейдж прогресс модель и универсально с помощью степ стейдж поля
         //для теста сортирую по айдишнику
-        var lastStageProgress = step.StageProgresses.OrderBy(sp => sp.StageProgressId).LastOrDefault();
+        var lastStageProgress = step.StageProgresses
+        //фикс
+            .OrderBy(sp => sp.Order)
+            .LastOrDefault();
         if (lastStageProgress == null)
         {
             throw new InvalidOperationException("Прогресс не создан");
@@ -117,5 +80,27 @@ public class NavigationService : INavigationService
             Type = step.Type,
             Stage = lastStageProgress.StageKey
         }; ;
+    }
+
+    public Stage FindStageByKeyV2(Step step, string stageKey)
+    {
+        var stage = step.StageList.FirstOrDefault(s => string.Equals(s.StageKey, stageKey, StringComparison.OrdinalIgnoreCase));
+        if (stage == null)
+        {
+            throw new InvalidOperationException("Stage not found");
+        }
+        return stage;
+    }
+
+    public Stage FindNextStageInStepV2(Step step, Stage prevStage)
+    {
+        var nextStage = step.StageList
+            .OrderBy(s => s.Order)
+            .FirstOrDefault(s => s.Order > prevStage.Order);
+        if (nextStage == null)
+        {
+            throw new InvalidOperationException("Stage not found");
+        }
+        return nextStage;
     }
 }

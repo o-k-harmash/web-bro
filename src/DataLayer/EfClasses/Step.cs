@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace WebBro.DataLayer.EfClasses;
 
 public static class StepType
@@ -17,34 +19,74 @@ public class Step
     public float Order { get; set; }
     public string ImageUrl { get; set; } = null!;
     public string Type { get; set; } = string.Empty;
-    //стейджи часть шага пусть получаются и хранятся внутри в зависимости от типа
-    // private string[]? _stages { get; set; } = null;
-    public string[] Stages { get; set; } = new string[] {
-                    "start",
-                    "submit",
-                    "review",
-                    "improve",
-                    "finish"};
-    // {
-    //     get
-    //     {
-    //         if (_stages != null)
-    //             return _stages;
+    
+    [NotMapped]
+    private List<Stage>? _stageList { get; set; } = null;
+    [NotMapped]
+    public List<Stage> StageList
+    {
+        get
+        {
+            if (_stageList != null)
+                return _stageList;
 
-    //         _stages = Type switch
-    //         {
-    //             StepType.Articles => Article.Stages,
-    //             StepType.Challenges =>,
-    //             _ => throw new ArgumentOutOfRangeException(nameof(Type), Type, null)
-    //         };
+            _stageList = Type switch
+            {
+                StepType.Articles => new List<Stage>
+                    {
+                        new Stage
+                        {
+                            StageId = 1,
+                            StageKey = "read",
+                            Order = 0,
+                            CompletionPice = 1f
+                        }
+                    },
+                StepType.Challenges => new List<Stage>
+                    {
+                        new Stage
+                        {
+                            StageId = 2,
+                            StageKey = "start",
+                            Order = 0,
+                            CompletionPice = 0.2f
+                        },
+                        new Stage
+                        {
+                            StageId = 3,
+                            StageKey = "submit",
+                            Order = 1,
+                            CompletionPice = 0.2f
+                        },
+                        new Stage
+                        {
+                            StageId = 4,
+                            StageKey = "review",
+                            Order = 2,
+                            CompletionPice = 0.2f
+                        },
+                        new Stage
+                        {
+                            StageId = 5,
+                            StageKey = "improve",
+                            Order = 3,
+                            CompletionPice = 0.2f
+                        },
+                        new Stage
+                        {
+                            StageId = 6,
+                            StageKey = "finish",
+                            Order = 4,
+                            CompletionPice = 0.2f
+                        }
+                    },
+                _ => throw new ArgumentOutOfRangeException(nameof(Type), Type, null)
+            };
 
-    //         return _stages;
-    //     }
-    //     set
-    //     {
-    //         _stages = value;
-    //     }
-    // }
+            return _stageList;
+        }
+    }
+
     //navigation
     public int LearningPathId { get; set; }
     public StepProgress? StepProgress { get; set; }

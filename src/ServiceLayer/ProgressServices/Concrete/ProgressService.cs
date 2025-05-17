@@ -8,55 +8,6 @@ using WebBro.DataLayer.EfClasses;
 public class ProgressService : IProgressService
 {
     /// <summary>
-    /// Use-case: начать прогресс по шагу, если он ещё не начат.
-    /// Используется при первом открытии шага, чтобы инициализировать StepProgress.
-    /// </summary>
-    public void StartStepIfNeeded(Step step)
-    {
-        if (step.StepProgress != null)
-            return;
-
-        // Вложенная сущность StepProgress создаётся прямо на агрегате Step
-        step.StepProgress = new StepProgress
-        {
-            StepId = step.StepId,
-            Completion = StepCompletion.NotStarted,
-            UpdatedAt = DateTime.UtcNow,
-        };
-    }
-
-    //работать с объектом стейджа поскольку поиск необходим в разных местах и это вынесено в навигацию
-    public void StartStageIfNeeded(Step step, string stageKey)
-    {
-        var stageProgress = step.StageProgresses.FirstOrDefault(sp => sp.StageKey == stageKey);
-        if (stageProgress != null)
-            return;
-        
-        // Вложенная сущность StepProgress создаётся прямо на агрегате Step
-        step.StageProgresses.Add(new StageProgress
-        {
-            StepId = step.StepId,
-            StageKey = stageKey,
-            Completion = StepCompletion.NotStarted,
-        });
-    }
-
-    /// <summary>
-    /// Use-case: добавить прогресс к шагу (например, при завершении шага).
-    /// Допустимая норма — от 0 до 1 (1 = завершено).
-    /// </summary>
-    /// <param name="value">Прирост, от 0.0 до 1.0</param>
-    public void AddCompleteForStepProgress(Step step, float value)
-    {
-        var stepProgress = step.StepProgress;
-        if (stepProgress != null)
-        {
-            stepProgress.Completion = Math.Min(StepCompletion.Completed, stepProgress.Completion + value);
-        }
-        // Можно логировать попытки завершения без инициализации — если понадобится инвариант
-    }
-
-    /// <summary>
     /// Use-case: вычислить процент завершения по множеству шагов.
     /// Используется для вычисления общего прогресса по LearningPath.
     /// </summary>
@@ -79,21 +30,108 @@ public class ProgressService : IProgressService
                 : StepCompletion.NotStarted));
     }
 
-    public void MarkStepAsCompleted(Step step)
+    public void StartStepIfNeededV2(Step step)
     {
-        if (step.StepProgress == null)
+        if (step.StepProgress != null)
+        {
             return;
+        }
 
-        // Вложенная сущность StepProgress создаётся прямо на агрегате Step
-        step.StepProgress.Completion = StepCompletion.Completed;
+        step.StepProgress = new StepProgress
+        {
+            StepId = step.StepId,
+            Completion = StepCompletion.NotStarted,
+            UpdatedAt = DateTime.UtcNow,
+        };
+        //использовать старт стейдж иф нидид или проверять нет ли созданного прогресса
+        step.StepProgress.StageProgresses.Add(new StageProgress
+        {
+            StepId = step.StepId,
+
+            //использовать сервис навигации
+            StageKey = step.StageList
+                .First()
+                .StageKey,
+
+            UpdatedAt = DateTime.UtcNow,
+            Completion = StepCompletion.NotStarted,
+        });
     }
 
-    public void MarkStageAsCompleted(Step step, string stageKey)
+    public void MarkStepAsCompletedV2(Step step)
     {
-        var stageProgress = step.StageProgresses.FirstOrDefault(sp => sp.StageKey == stageKey);
+        var stepProgress = step.StepProgress;
+        if (stepProgress == null)
+        {
+            throw new InvalidOperationException("StepProgress is not initialized.");
+        }
+
+        //возможно сделать вспомогательный метод обновления или оставить апдейтед на усмотрение базы данных
+        stepProgress.Completion = StepCompletion.Completed;
+        stepProgress.UpdatedAt = DateTime.UtcNow;
+
+        //или вынести в сервис навиации типо найти ласт стейдж и его прогресс
+        var lastStageProgress = stepProgress.StageProgresses
+            .OrderBy(sp => sp.Order)
+            .LastOrDefault(); //проверка что прогресс действительно последнего шага
+        if (lastStageProgress == null)
+        {
+            throw new InvalidOperationException("No last stage found for this step.");
+        }
+
+        lastStageProgress.Completion = StepCompletion.Completed;
+        lastStageProgress.UpdatedAt = DateTime.UtcNow;
+    }
+
+    public void MarkStageAsCompletedV2(Step step, Stage stage)
+    {
+        var stepProgress = step.StepProgress;
+        if (stepProgress == null)
+        {
+            throw new InvalidOperationException("StepProgress is not initialized.");
+        }
+        //видны паттерны нахождение прогресса по стейджу и проверка на наличие
+        var stageProgress = stepProgress.StageProgresses.FirstOrDefault(sp => sp.StageKey == stage.StageKey);
         if (stageProgress == null)
+        {
+            throw new InvalidOperationException("StepProgress is not initialized.");
+        }
+
+        if (stageProgress.Completion == StepCompletion.Completed)
+        {
             return;
-        // Вложенная сущность StepProgress создаётся прямо на агрегате Step
+        }
+
+        //логика добавления инлайновая поскольку единственное место где это нужно
+        stepProgress.Completion = Math.Min(StepCompletion.Completed, stepProgress.Completion + stage.CompletionPice);
+
+        //видны паттерны обновления прогресса
         stageProgress.Completion = StepCompletion.Completed;
+        stageProgress.UpdatedAt = DateTime.UtcNow;
+    }
+
+    public void StartStageIfNeededV2(Step step, Stage stage)
+    {
+        var stepProgress = step.StepProgress;
+        if (stepProgress == null)
+        {
+            throw new InvalidOperationException("StepProgress is not initialized.");
+        }
+
+        var stageProgress = stepProgress.StageProgresses.FirstOrDefault(sp => sp.StageKey == stage.StageKey);
+        if (stageProgress != null)
+        {
+            return;
+        }
+
+        stepProgress.StageProgresses.Add(new StageProgress
+        {
+            StepId = step.StepId,
+            StageKey = stage.StageKey,
+            Completion = StepCompletion.NotStarted,
+            UpdatedAt = DateTime.UtcNow,
+            //фикс
+            Order = stage.Order,
+        });
     }
 }
