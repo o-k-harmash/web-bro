@@ -5,4 +5,5 @@ public class StageProgress
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
     public int StepId { get; set; }
     public float Completion { get; set; }
+    public float Order { get; set; }
 }

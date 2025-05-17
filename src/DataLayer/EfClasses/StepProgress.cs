@@ -8,6 +8,7 @@ public class StepProgress
     //props
     public float Completion { get; set; }
     public DateTime UpdatedAt { get; set; }
+    public List<StageProgress> StageProgresses { get; set; } = new();
 
     //navigation
     public int StepId { get; set; }

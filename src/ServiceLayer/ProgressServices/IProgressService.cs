@@ -2,11 +2,12 @@ using WebBro.DataLayer.EfClasses;
 
 public interface IProgressService
 {
-    void MarkStageAsCompleted(Step step, string stageKey);
-    void StartStageIfNeeded(Step step, string stageKey);
-    void MarkStepAsCompleted(Step step);
-    void AddCompleteForStepProgress(Step step, float value);
-    void StartStepIfNeeded(Step step);
+    void StartStepIfNeededV2(Step step);
+    void MarkStepAsCompletedV2(Step step);
+    void MarkStageAsCompletedV2(Step step, Stage stage);
+    void StartStageIfNeededV2(Step step, Stage stage);
+
+
     int GetPrecentegeFromStepProgress(List<Step> steps);
     int GetPrecentegeFromStepProgress(Step step);
 }
