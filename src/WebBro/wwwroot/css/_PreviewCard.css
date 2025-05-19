@@ -5,7 +5,8 @@
 .preview-wrapper {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md); /* 📏 Расстояние между элементами */
+  gap: var(--spacing-md);
+  /* 📏 Расстояние между элементами */
 }
 
 /*testing*/
@@ -17,7 +18,7 @@
   gap: 0.4rem;
 }
 
-.preview-wrapper > .preview__header {
+.preview-wrapper>.preview__header {
   /* font-size: 1.4rem; */
   font-weight: 600;
   /* font-family: var(--font-family-primary); */
@@ -34,7 +35,8 @@
   --max-media-height: 22rem;
 
   display: flex;
-  gap: clamp(1rem, 2vw, var(--spacing-lg)); /* 📏 Адаптивный отступ */
+  gap: clamp(1rem, 2vw, var(--spacing-lg));
+  /* 📏 Адаптивный отступ */
   font-family: var(--font-family-secondary);
 }
 
@@ -42,15 +44,18 @@
 .preview__main {
   display: flex;
   flex-direction: column;
-  flex: 1.5; /* 🧮 Занимает ~60% */
+  flex: 1.5;
+  /* 🧮 Занимает ~60% */
   width: 100%;
   height: fit-content;
-  gap: clamp(1rem, 1vw, 1.25rem); /* 📏 Адаптивный отступ */
+  gap: clamp(1rem, 1vw, 1.25rem);
+  /* 📏 Адаптивный отступ */
 }
 
 /* 🖼 Медиа-блок карточки */
 .preview__aside {
-  flex: 1; /* 🧮 Занимает ~40% */
+  flex: 1;
+  /* 🧮 Занимает ~40% */
 }
 
 /* ==========================================================================
@@ -77,7 +82,7 @@
   border: 1px solid var(--border-color-secondary);
 }
 
-.preview__tag > * {
+.preview__tag>* {
   padding-inline: 0.6rem;
 }
 
@@ -95,7 +100,8 @@
 .preview__media {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* ✂️ Обрезка без искажений */
+  object-fit: cover;
+  /* ✂️ Обрезка без искажений */
   border-radius: var(--radius-md);
 }
 
@@ -120,11 +126,9 @@
   margin-bottom: 0.6rem;
   border-radius: var(--radius-md);
   padding-block: 0.38rem;
-  background-image: linear-gradient(
-    to right,
-    #3e54a3 var(--data-percentage),
-    #dbe5e6 0%
-  );
+  background-image: linear-gradient(to right,
+      #3e54a3 var(--data-percentage),
+      #dbe5e6 0%);
 }
 
 .preview__progress-percentage {
@@ -155,7 +159,8 @@
 
 .preview_step .preview__aside {
   flex: 1;
-  order: -1; /* ⬅ Меняем порядок: медиа слева */
+  order: -1;
+  /* ⬅ Меняем порядок: медиа слева */
 }
 
 /* 🧩 Карточка заголовка/главная */
@@ -186,6 +191,14 @@
   font-size: 1.2rem;
 }
 
+.preview_course {
+  align-items: center;
+}
+
+.preview_course .preview__aside {
+  flex: 2;
+}
+
 /* ==========================================================================
   📱 Адаптивные стили (мобилки)
    ========================================================================== */
@@ -196,10 +209,29 @@
   }
 
   .preview__media {
-    max-height: var(--max-media-height); /* 🧹 Обрезка по высоте */
+    max-height: var(--max-media-height);
+    /* 🧹 Обрезка по высоте */
   }
 
   .preview_step .preview__aside {
-    order: 1; /* ↩️ Возвращаем стандартный порядок */
+    order: 1;
+    /* ↩️ Возвращаем стандартный порядок */
+  }
+
+  .preview_course {
+    padding-top: 2rem;
+    flex-direction: column;
+  }
+
+  .preview_course .preview__header {
+    font-size: 2.25rem;
+  }
+
+  .preview_course .preview__main {
+    text-align: center;
+  }
+
+  .preview_course .preview__media {
+    max-height: 100%;
   }
 }

@@ -47,6 +47,10 @@ body {
   background-color: var(--background-color-secondary);
 }
 
+main {
+  flex: 1;
+}
+
 .container {
   margin-inline: auto;
   max-width: 1000px;
@@ -227,7 +231,6 @@ h4 {
 
 .lp-idx-head {
   display: flex;
-  height: 40rem;
   background-color: hsl(0 0% 98%);
 }
 
