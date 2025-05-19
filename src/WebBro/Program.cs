@@ -10,6 +10,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<AppDbContext>();
 builder.Services.AddScoped<ILearningPathService, LearningPathService>();
+builder.Services.AddScoped<ILearningPathNavigationService, LearningPathNavigationService>();
 builder.Services.AddScoped<IProgressService, ProgressService>();
 builder.Services.AddScoped<INavigationService, NavigationService>();
 builder.Services.AddScoped<IMarkdownService, MarkdownService>();

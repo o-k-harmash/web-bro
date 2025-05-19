@@ -9,20 +9,20 @@ namespace WebBro.Services.Challenges
         private readonly IProgressService _progressService;
         private readonly INavigationService _navigationService;
         private readonly IMarkdownService _markdownService;
-        private readonly ILearningPathService _learningPathService;
+        private readonly ILearningPathNavigationService _learningPathNavigationService;
 
         public ChallengeService(
             AppDbContext ctx,
             IProgressService progressService,
             INavigationService navigationService,
             IMarkdownService markdownService,
-            ILearningPathService learningPathService)
+            ILearningPathNavigationService learningPathNavigationService)
         {
             _ctx = ctx;
             _progressService = progressService;
             _navigationService = navigationService;
             _markdownService = markdownService;
-            _learningPathService = learningPathService;
+            _learningPathNavigationService = learningPathNavigationService;
         }
 
         public ChallengeStartVm PrepareChallengeStep(int learningPathId, int stepId)
@@ -77,7 +77,7 @@ namespace WebBro.Services.Challenges
                     ImageUrl = currentStep.ImageUrl,
                 },
 
-                StepNavs = _learningPathService
+                StepNavs = _learningPathNavigationService
                     .GetLearningPathNavigation(learningPathId, stepId, "start")
             };
         }

@@ -7,12 +7,14 @@ public class LearningPathsController : Controller
 {
     private readonly IWebHostEnvironment _hostEnvironment;
     private readonly ILearningPathService _learningPathService;
+    private readonly ILearningPathNavigationService _learningPathNavigationService;
     private readonly ILogger<LearningPathsController> _logger;
 
     public LearningPathsController(
         ILogger<LearningPathsController> logger,
         IWebHostEnvironment hostEnvironment,
-        ILearningPathService learningPathService)
+        ILearningPathService learningPathService,
+        ILearningPathNavigationService learningPathNavigationService)
     {
         _logger = logger;
         _hostEnvironment = hostEnvironment;
@@ -48,7 +50,7 @@ public class LearningPathsController : Controller
     public IActionResult Continue(int learningPathId)
     {
         //поправить поиск шагов проблема не видит что шаг не завершен по стейджам
-        var nextNav = _learningPathService.GetStepToContinue(learningPathId);
+        var nextNav = _learningPathNavigationService.GetStepToContinue(learningPathId);
 
         if (nextNav == null)
         {
