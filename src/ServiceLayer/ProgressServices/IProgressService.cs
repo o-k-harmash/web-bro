@@ -7,6 +7,8 @@ public interface IProgressService
     void MarkStageAsCompletedV2(Step step, Stage stage);
     void StartStageIfNeededV2(Step step, Stage stage);
 
+    StepProgress? FindStepProgress(Step step);
+    StageProgress? FindStageProgress(Step step, Stage stage);
 
     int GetPrecentegeFromStepProgress(List<Step> steps);
     int GetPrecentegeFromStepProgress(Step step);

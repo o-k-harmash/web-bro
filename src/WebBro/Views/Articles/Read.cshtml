@@ -3,10 +3,16 @@
 <section class="step-screen step-screen_article">
     <div class="step-screen__content">
         <main class="step-screen__main">
-            <div class="step-screen__markdown">
+            <div class="markdown step-screen__markdown">
                 @Html.Raw(Model.MarkdownContent)
             </div>
-
+            @{
+                var link = Url.Action("CompleteStep", "LearningPaths", new
+                {
+                    learningPathId = Model.LearningPathId,
+                    stepId = Model.Id
+                });
+            }
             @if (Model.NextStep != null)
             {
                 <div class="preview-wrapper preview_card">
@@ -27,31 +33,28 @@
                             <img class="preview__media" src="@Model.NextStep.ImageUrl" alt="Learning path image">
                         </a>
                     </article>
-                    @{
-                        var link = Url.Action("CompleteStep", "LearningPaths", new
-                        {
-                            learningPathId = Model.LearningPathId,
-                            stepId = Model.Id
-                        });
-                    }
+
                     <a class="button button_red" href="@link">continue</a>
                 </div>
             }
             else
             {
-                var link = Url.Action("CompleteStep", "LearningPaths", new
-                {
-                    learningPathId = Model.LearningPathId,
-                    stepId = Model.Id
-                });
-
                 <a class="button button_red" href="@link">finish</a>
             }
         </main>
 
         <aside class="step-screen__aside">
-            <nav class="step__navigation">
+            <nav class="card menu">
+                <h4 class="menu__title">Your path progress</h4>
+                <ul class="menu__list">
 
+                    @* 🔁 Обход шагов и вставка компонента *@
+                    @foreach (var step in Model.StepNavs)
+                    {
+                        @await Html.PartialAsync("_NavStepItem", step)
+                    }
+
+                </ul>
             </nav>
         </aside>
     </div>

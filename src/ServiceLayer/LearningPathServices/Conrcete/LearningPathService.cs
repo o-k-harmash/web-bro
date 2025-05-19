@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using DataLayer;
 using WebBro.DataLayer.EfClasses;
 
@@ -217,5 +218,71 @@ public class LearningPathService : ILearningPathService
 
         // Получаем навигационную модель через NavigationService
         return _navigationService.GetStepNavigationVm(learningPath, step);
+    }
+
+    public List<NavItemVm> GetLearningPathNavigation(int learningPathId, int stepId, string stageKey)
+    {
+        var learningPath = _ctx.LearningPaths.GetFullAggregateById(learningPathId);
+        if (learningPath == null)
+        {
+            throw new InvalidOperationException("Путь обучения не найден");
+        }
+
+        // Находим шаг в пути
+        var step = _navigationService.FindStepInPathById(learningPath, stepId);
+
+        var stage = _navigationService.FindStageByKeyV2(step, stageKey);
+
+        var navItemVms = new List<NavItemVm> { };
+
+        foreach (var sp in learningPath.Steps)
+        {
+            var childrens = sp.StageList
+                .Select(st => new NavItemVm
+                {
+                    StepId = sp.StepId,
+                    Title = st.StageKey,
+                    LearningPathId = learningPathId,
+
+                    IsOpen = _progressService
+                    .FindStageProgress(sp, st) != null,
+
+                    IsCompleted = _progressService
+                        .FindStageProgress(sp, st)?.Completion == StepCompletion.Completed,
+
+                    IsCurrentPage = stage.StageKey == st.StageKey,
+                    Type = sp.Type,
+                    StageKey = st.StageKey
+                })
+                .ToList();
+
+            var isSingle = childrens.Count == 1;
+
+            var stepProgress = _progressService.FindStepProgress(sp);
+
+            var navItemVm = new NavItemVm
+            {
+                StepId = sp.StepId,
+                Title = sp.Title,
+                LearningPathId = learningPathId,
+                IsOpen = stepProgress != null,
+                IsCompleted = stepProgress?.Completion == StepCompletion.Completed,
+            };
+
+            if (isSingle)
+            {
+                var one = childrens.First();
+                navItemVm.Type = sp.Type;
+                navItemVm.StageKey = one.StageKey;
+            }
+            else
+            {
+                navItemVm.Children = childrens;
+            }
+
+            navItemVms.Add(navItemVm);
+        }
+
+        return navItemVms;
     }
 }

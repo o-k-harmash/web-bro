@@ -9,17 +9,20 @@ namespace WebBro.Services.Challenges
         private readonly IProgressService _progressService;
         private readonly INavigationService _navigationService;
         private readonly IMarkdownService _markdownService;
+        private readonly ILearningPathService _learningPathService;
 
         public ChallengeService(
             AppDbContext ctx,
             IProgressService progressService,
             INavigationService navigationService,
-            IMarkdownService markdownService)
+            IMarkdownService markdownService,
+            ILearningPathService learningPathService)
         {
             _ctx = ctx;
             _progressService = progressService;
             _navigationService = navigationService;
             _markdownService = markdownService;
+            _learningPathService = learningPathService;
         }
 
         public ChallengeStartVm PrepareChallengeStep(int learningPathId, int stepId)
@@ -72,7 +75,10 @@ namespace WebBro.Services.Challenges
                     Title = currentStep.Title,
                     Description = currentStep.Description,
                     ImageUrl = currentStep.ImageUrl,
-                }
+                },
+
+                StepNavs = _learningPathService
+                    .GetLearningPathNavigation(learningPathId, stepId, "start")
             };
         }
 
@@ -120,7 +126,7 @@ namespace WebBro.Services.Challenges
             {
                 Id = currentStep.StepId,
                 LearningPathId = currentStep.LearningPathId,
-                Stage = nextStage.StageKey
+                Stage = nextStage.StageKey,
                 //найти следующий стейдж +
             };
         }

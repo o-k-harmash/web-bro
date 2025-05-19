@@ -9,17 +9,20 @@ namespace WebBro.Services.Articles
         private readonly IProgressService _progressService;
         private readonly INavigationService _navigationService;
         private readonly IMarkdownService _markdownService;
+        private readonly ILearningPathService _learningPathService;
 
         public ArticleService(
             AppDbContext ctx,
             IProgressService progressService,
             INavigationService navigationService,
-            IMarkdownService markdownService)
+            IMarkdownService markdownService,
+            ILearningPathService learningPathService)
         {
             _ctx = ctx;
             _progressService = progressService;
             _navigationService = navigationService;
             _markdownService = markdownService;
+            _learningPathService = learningPathService;
         }
 
         /// <summary>
@@ -34,7 +37,7 @@ namespace WebBro.Services.Articles
             var learningPath = _ctx.LearningPaths
                 .IncludeStepsWithArticles()
                 .FirstOrDefault(lp => lp.LearningPathId == learningPathId);
-                
+
             if (learningPath == null)
             {
                 throw new InvalidOperationException("Путь не найден");
@@ -75,7 +78,10 @@ namespace WebBro.Services.Articles
                         Title = nextStep.Title,
                         Description = nextStep.Description
                     }
-                    : null
+                    : null,
+
+                StepNavs = _learningPathService
+                    .GetLearningPathNavigation(learningPathId, stepId, "read")
             };
         }
     }

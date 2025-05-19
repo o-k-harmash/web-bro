@@ -9,4 +9,5 @@ public class ChallengeStartVm
     public string SuggestionMarkdown { get; set; } = string.Empty;
     public string SolutionBaseRepository { get; set; } = string.Empty;
     public LearningPathPreviewVm Step { get; set; } = null!;
+    public List<NavItemVm> StepNavs { get; set; } = new();
 }

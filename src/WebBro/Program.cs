@@ -86,13 +86,13 @@ using (var scope = app.Services.CreateScope())
             new Article
             {
                 ArticleId = 1,
-                ArticleMarkdown = "README.md",
+                ArticleMarkdown = "assets/en/path-1/step-1/article.md",
                 StepId = 1
             },
             new Article
             {
                 ArticleId = 2,
-                ArticleMarkdown = "README.md",
+                ArticleMarkdown = "assets/en/path-1/step-2/article.md",
                 StepId = 2
             }
         });
@@ -105,8 +105,8 @@ using (var scope = app.Services.CreateScope())
                 StepId = 3,
                 DesktopPreviewImage = "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto/Challenges/cmab9xsatnq8m04w5ikl.jpg",
                 MobilePreviewImage = "https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto/Challenges/cmab9xsatnq8m04w5ikl.jpg",
-                BriefMarkdown = "README.md",
-                SuggestionMarkdown = "README.md",
+                BriefMarkdown = "assets/en/path-1/step-3/brief.md",
+                SuggestionMarkdown = "assets/en/path-1/step-3/suggestion.md",
                 SolutionBaseRepository = "https://github.com/o-k-harmash/web-bro/tree/main/src/WebBro/Views"
             }
         });

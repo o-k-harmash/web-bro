@@ -1,0 +1,30 @@
+.markdown {
+    display: flex;
+    flex-direction: column;
+    gap: 0.93rem;
+    min-width: 0;
+    /* 🚨 разрешить ужиматься в флекс-контейнере */
+    overflow-wrap: break-word;
+    /* ✅ ломать длинные слова */
+    word-break: break-word;
+    /* ✅ ломать слова при необходимости */
+}
+
+.markdown h1 {
+    margin-bottom: 1.5rem;
+}
+
+.markdown h2 {
+    margin-block: 1.2rem;
+}
+
+.markdown h3 {
+    margin-bottom: 1.2rem;
+}
+
+.markdown li {
+    list-style-type: disc;
+    list-style-position: outside;
+    margin-bottom: 1rem;
+    margin-left: 20px;
+}
