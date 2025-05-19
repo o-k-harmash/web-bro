@@ -19,6 +19,7 @@ public class LearningPathsController : Controller
         _logger = logger;
         _hostEnvironment = hostEnvironment;
         _learningPathService = learningPathService;
+        _learningPathNavigationService = learningPathNavigationService;
     }
 
     // Use-case 0: Display a list of all learning paths (dashboard)

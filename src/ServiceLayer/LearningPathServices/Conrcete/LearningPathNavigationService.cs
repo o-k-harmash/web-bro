@@ -39,32 +39,6 @@ public class LearningPathNavigationService : ILearningPathNavigationService
         };
     }
 
-    /// <summary>
-    /// Use-case: Получить навигационную модель для конкретного шага.
-    /// </summary>
-    /// <param name="learningPathId">ID пути обучения</param>
-    /// <param name="stepId">ID шага</param>
-    /// <returns>StepNavigationVm для шага</returns>
-    public StepNavigationVm OpenStep(int learningPathId, int stepId)
-    {
-        // Загружаем путь обучения
-        var learningPath = _ctx.LearningPaths.GetFullAggregateById(learningPathId);
-        if (learningPath == null)
-        {
-            throw new InvalidOperationException("Путь обучения не найден");
-        }
-
-        // Находим шаг в пути
-        var step = _navigationService.FindStepInPathById(learningPath, stepId);
-        if (step == null)
-        {
-            throw new InvalidOperationException("Шаг не найден");
-        }
-
-        // Получаем навигационную модель через NavigationService
-        return _navigationService.GetStepNavigationVm(learningPath, step);
-    }
-
     public List<NavItemVm> GetLearningPathNavigation(int learningPathId, int stepId, string stageKey)
     {
         var learningPath = _ctx.LearningPaths.GetFullAggregateById(learningPathId);
