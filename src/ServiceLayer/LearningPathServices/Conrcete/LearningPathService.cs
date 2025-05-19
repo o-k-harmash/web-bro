@@ -1,5 +1,4 @@
 using DataLayer;
-using WebBro.DataLayer.EfClasses;
 
 public class LearningPathService : ILearningPathService
 {
@@ -159,32 +158,6 @@ public class LearningPathService : ILearningPathService
 
         _progressService.StartStepIfNeededV2(nextStep);
         _ctx.SaveChanges();
-
-        return new StepNavigationVm
-        {
-            Id = nextStep.StepId,
-            LearningPathId = nextStep.LearningPathId
-        };
-    }
-
-    /// <summary>
-    /// Use-case: Найти первый незавершённый шаг, чтобы продолжить обучение.
-    /// </summary>
-    /// <param name="learningPathId">ID пути обучения</param>
-    /// <returns>ID следующего шага или null</returns>
-    public StepNavigationVm? GetStepToContinue(int learningPathId)
-    {
-        var learningPath = _ctx.LearningPaths.GetFullAggregateById(learningPathId);
-        if (learningPath == null)
-        {
-            throw new InvalidOperationException("Путь не найден");
-        }
-
-        var nextStep = _navigationService.FindContinueStepInPath(learningPath);
-        if (nextStep == null)
-        {
-            return null;
-        }
 
         return new StepNavigationVm
         {

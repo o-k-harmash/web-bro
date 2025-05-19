@@ -1,0 +1,56 @@
+@model NavItemVm
+
+@{
+    // 🔧 Функции для иконки и URL
+    string navIcon = Model.IsCompleted ? "✔️"
+    : Model.IsOpen ? "➡️"
+    : "🔒";
+
+    string url = Url.Action(Model.StageKey, Model.Type, new
+    {
+        learningPathId = Model.LearningPathId,
+        stepId = Model.StepId
+    });
+}
+
+@if (!Model.HasChildren)
+{
+    <!-- 📄 Обычный шаг -->
+    <li class="menu__item @(Model.IsCurrentPage ? "menu__item_current" : "")">
+        <span>@navIcon</span>
+        <a href="@url" class="menu__link">@Model.Title</a>
+    </li>
+}
+else
+{
+    <!-- 📂 Родительский шаг с вложенными -->
+    <li class="menu__item">
+        <details class="dropdown" @(Model.IsCurrentPage ? "open" : "")>
+            <summary class="dropdown__summary">
+                <span>@navIcon</span>
+                @Model.Title
+                <span>&#x2BC6;</span> <!-- 🔽 Стрелочка -->
+            </summary>
+            <ul class="dropdown__list">
+                @foreach (var child in Model.Children)
+                {
+                    string childIcon = child.IsCompleted ? "✔️"
+                    : child.IsOpen ? "➡️"
+                    : "🔒";
+
+                    string childUrl = Url.Action(child.StageKey, child.Type, new
+                    {
+                        learningPathId = child.LearningPathId,
+                        stepId = child.StepId
+                    });
+
+                    <!-- 📑 Вложенный шаг -->
+                    <li class="menu__item dropdown__item @(child.IsCurrentPage ? "menu__item_current" : "")">
+                        <span>@childIcon</span>
+                        <a href="@childUrl" class="dropdown__link">@child.Title</a>
+                    </li>
+                }
+            </ul>
+        </details>
+    </li>
+}

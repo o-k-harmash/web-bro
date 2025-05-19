@@ -13,7 +13,7 @@ namespace WebBro.Controllers
             _articleService = articleService;
         }
 
-        [HttpGet]
+        [HttpGet("read")]
         public IActionResult Read(int learningPathId, int stepId)
         {
             var vm = _articleService.GetArticleForReading(learningPathId, stepId);

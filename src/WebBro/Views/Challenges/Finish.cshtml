@@ -1,8 +1,98 @@
+@model ChallengeStartVm
+
 @{
-    var link = Url.Action("CompleteStep", "LearningPaths", new
-    {
-        learningPathId = 1,
-        stepId = 3
-    });
+    var title = "Learning path - " + Model.Step.Title;
+    var imageUrl = Model.Step.ImageUrl;
+    var description = Model.Step.Description;
+    var learningPathId = Model.LearningPathId;
+    var stepId = Model.Step.Id;
+    var stepNavs = Model.StepNavs;
+    var solutionBaseRepository = Model.SolutionBaseRepository;
 }
-<a class="button button_red" href="@link">Finish</a>
+<section class="step-screen">
+    <div class="step-screen__content">
+        <main class="step-screen__main">
+            <article class="preview card">
+                <!-- 🌟 Контейнер основного содержания -->
+                <section class="preview__main">
+                    <img class="preview__media" src="@imageUrl" alt="Learning path image">
+
+                    <div class="row center gap-md">
+                        <button class="button button_blue button_small">desktop design</button>
+                        <button class="button button_blue button_small">mobile design</button>
+                    </div>
+
+                    <!-- 🏷 Уровень сложности -->
+                    <div class="preview__tag">
+                        <span class="preview__tag-danger">1</span>
+                        <span>newbie</span>
+                    </div>
+
+                    <h3 class="preview__header">@title</h3>
+
+                    <p class="preview__description">@description</p>
+                </section>
+            </article>
+            <article class="card col gap-md align-start">
+                <h3>Download starter files</h3>
+                <p>Our premium starter download includes optimized assets and starter files. You can download the design
+                    file separately. We recommend reading the README in the download first to help you get started.</p>
+                <a href="@solutionBaseRepository" download>
+                    <button class="button button_blue">
+                        Download starter ☁️
+                    </button>
+                </a>
+                <hr class="del" />
+                <h3>Download design file</h3>
+                <p>All of our designs are available as Figma files. Using the design file will help you build more
+                    accurate solutions faster while using a professional workflow.</p>
+                <a href="" download>
+                    <button class="button button_blue">
+                        Download Figma file ☁️
+                    </button>
+                </a>
+            </article>
+            <article class="card col gap-md">
+                <h2>📝 Brief</h2>
+                <div class="markdown">
+                    @Html.Raw(Model.BriefMarkdown)
+                </div>
+            </article>
+
+            <article class="card col gap-md">
+                <h2>🗃 Assets provided</h2>
+                <ul>
+                    <li>QR code image</li>
+                    <li>Icons</li>
+                    <li>Fonts</li>
+                </ul>
+            </article>
+            <article class="card col gap-md">
+                <h2>💡Ideas to test yourself</h2>
+                <div class="markdown">
+                    @Html.Raw(Model.SuggestionMarkdown)
+                </div>
+            </article>
+            <a
+                href="@Url.Action("CompleteStep", "LearningPaths", new { learningPathId = Model.LearningPathId, stepId = Model.Step.Id })">
+                <button class="button button_red">
+                    Finish
+                </button>
+            </a>
+        </main>
+        <aside class="step-screen__aside">
+            <nav class="card menu">
+                <h4 class="menu__title">Your path progress</h4>
+                <ul class="menu__list">
+
+                    @* 🔁 Обход шагов и вставка компонента *@
+                    @foreach (var step in Model.StepNavs)
+                    {
+                        @await Html.PartialAsync("_NavStepItem", step)
+                    }
+
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</section>

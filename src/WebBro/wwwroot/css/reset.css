@@ -3,6 +3,45 @@
    License: none (public domain)
 */
 
+pre {
+  white-space: pre-wrap;
+  /* 🧩 разрешить перенос строк */
+  word-break: break-word;
+}
+
+code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.95em;
+  background-color: #f4f4f4;
+  color: #c7254e;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
+pre {
+  background-color: #2d2d2d;
+  color: #f8f8f2;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  /* ✅ прокрутка, если не влезает */
+  white-space: pre-wrap;
+  /* ✅ перенос строк, если можно */
+  word-break: break-word;
+  /* ✅ перенос длинных слов */
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+pre code {
+  background: none;
+  /* 🔧 убираем фон от инлайн-<code> */
+  color: inherit;
+  /* 🔧 цвет от родителя */
+  padding: 0;
+}
+
 a {
   color: inherit;
   text-decoration: none;

@@ -134,4 +134,20 @@ public class ProgressService : IProgressService
             Order = stage.Order,
         });
     }
+
+    public StepProgress? FindStepProgress(Step step)
+    {
+        return step.StepProgress;
+    }
+
+    public StageProgress? FindStageProgress(Step step, Stage stage)
+    {
+        var progress = step.StepProgress;
+        if (progress == null)
+        {
+            return null;
+        }
+        var stageProgress = progress.StageProgresses.FirstOrDefault(sp => sp.StageKey == stage.StageKey);
+        return stageProgress;
+    }
 }

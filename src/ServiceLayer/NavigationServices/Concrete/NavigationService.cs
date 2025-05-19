@@ -53,6 +53,111 @@ public class NavigationService : INavigationService
             .First();
     }
 
+    public List<NavItemVm> GetStepNavs()
+    {
+        return new List<NavItemVm>
+{
+    // 1. Обычный шаг без стейджей, завершён
+    new NavItemVm
+    {
+        Title = "Intro to Frontend Mentor",
+        LearningPathId = 0,
+        IsOpen = true,
+        IsCurrentPage = false,
+        StepId = 1,
+        Type = "Articles",
+        IsCompleted = true
+    },
+
+    // 2. Текущий шаг без стейджей, не завершён
+    new NavItemVm
+    {
+        Title = "Intro to Frontend Mentor",
+        LearningPathId = 1,
+        IsOpen = true,
+        IsCurrentPage = true,
+        StepId = 1,
+        Type = "Articles",
+        StageKey = "read",
+        IsCompleted = false
+    },
+
+    // 3. Шаг со стейджами, завершённый
+    new NavItemVm
+    {
+        Title = "QR Code Component",
+        LearningPathId = 3,
+        IsOpen = false,
+
+        IsCurrentPage = false,
+
+        StepId = 10,
+        Type = "",
+
+        IsCompleted = false,
+        Children = new List<NavItemVm>
+        {
+           new NavItemVm
+            {
+                Title = "Intro to Frontend Mentor",
+                LearningPathId = 0,
+                IsOpen = true,
+                IsCurrentPage = false,
+                StepId = 1,
+                Type = "Articles",
+                IsCompleted = true
+            },
+            new NavItemVm
+            {
+                Title = "Submit solution",
+                StageKey = "submit",
+                IsCurrentPage = false,
+                IsCompleted = true,
+                Type = "Articles",
+                IsOpen = true
+            }
+        }
+    },
+
+    // 4. Текущий шаг со стейджами, текущая страница — один из стейджей
+    new NavItemVm
+    {
+        Title = "Blog preview card",
+        LearningPathId = 4,
+        IsOpen = true,
+
+        IsCurrentPage = true,
+
+        StepId = 4,
+        Type = "",
+
+        IsCompleted = false,
+        Children = new List<NavItemVm>
+        {
+            new NavItemVm
+
+            {
+                Title = "Start challenge",
+                StageKey = "start",
+                IsCurrentPage = false,
+                Type = "challenge",
+                IsCompleted = true,
+                IsOpen = true
+            },
+            new NavItemVm
+            {
+                Title = "Submit solution",
+                StageKey = "submit",
+                IsCurrentPage = true,
+                Type = "challenge",
+                IsCompleted = false,
+                IsOpen = true
+            }
+        }
+    }
+        };
+    }
+
     /// <summary>
     /// Use-case: получить навигацию по шагу.
     /// </summary>

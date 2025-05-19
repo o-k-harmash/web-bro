@@ -22,36 +22,10 @@
   color: var(--color-grey-900);
   line-height: 1.5;
   font-size: 1.1rem;
-  margin-inline: auto;
 }
 
 .step-screen__aside {
   flex: 1;
-}
-
-.step-screen__markdown {
-  display: flex;
-  flex-direction: column;
-  gap: 0.93rem;
-}
-
-.step-screen__markdown h1 {
-  margin-bottom: 1.5rem;
-}
-
-.step-screen__markdown h2 {
-  margin-block: 1.2rem;
-}
-
-.step-screen__markdown h3 {
-  margin-bottom: 1.2rem;
-}
-
-.step-screen__markdown li {
-  list-style-type: disc;
-  list-style-position: outside;
-  margin-bottom: 1rem;
-  margin-left: 20px;
 }
 
 @media (max-width: 1024px) {

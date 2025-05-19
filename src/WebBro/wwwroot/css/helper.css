@@ -2,7 +2,7 @@
   background-color: var(--background-color-primary);
   border: 1px solid var(--border-color-primary);
   border-radius: var(--radius-md);
-  padding: var(--spacing-md);
+  padding: var(--spacing-lg);
 }
 
 /* === Display Types === */
@@ -192,6 +192,7 @@
 }
 
 .del {
+  margin: 0;
   width: 100%;
   border-top: 1px solid var(--border-color-primary);
 }
